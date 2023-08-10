@@ -27,7 +27,7 @@
         <members>HomeChildKanbanEvent</members>
         <members>CustomEvent</members>
         <members>CustomEventNotifyParent</members>
-        <members>CustomMultiPickList</members>
+        <members>CustomMultiPicklist</members>
         <members>CustomOption</members>
         <members>CustomOptionGroup</members>
         <members>CustomPill</members>
