@@ -66,7 +66,7 @@
             }
             sObj.sobjectType = 'kanbanDev__KanbanConfiguration__c';
             sObj.Name = configName;
-            sObj.kanbanDev__For_Object__c = ObjectName;
+            sObj.kanbanDev__ForObject__c = ObjectName;
             if(kf != 'Home'){
                 sObj.kanbanDev__ChildObject__c = childObjectName.split('~;')[0];
                 sObj.kanbanDev__Relation_Field__c = childObjectName.split('~;')[1];

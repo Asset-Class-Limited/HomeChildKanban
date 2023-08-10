@@ -226,7 +226,7 @@
             var simpleRecord = component.get('v.simpleRecord');
             var createRecordEvent = $A.get("e.force:createRecord");
             createRecordEvent.setParams({
-                "entityApiName": simpleRecord.kanbanDev__For_Object__c
+                "entityApiName": simpleRecord.kanbanDev__ForObject__c
             });
             createRecordEvent.fire();
         }else{

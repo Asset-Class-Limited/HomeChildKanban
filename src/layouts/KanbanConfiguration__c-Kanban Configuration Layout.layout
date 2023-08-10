@@ -21,7 +21,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>For_Object__c</field>
+                <field>ForObject__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
