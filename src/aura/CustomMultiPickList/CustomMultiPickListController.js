@@ -46,7 +46,7 @@
         component.set('v.alreadyRendered', true);
 
     },
-    handleOnfocus: function(component, event, helper) {
+    handleOnFocus: function(component, event, helper) {
         var isMobile = component.get('v.isMobile');
 
         event.stopPropagation();
@@ -58,7 +58,7 @@
             }), 1);
         }
     },
-    handleOnclick: function(component, event, helper) {
+    handleOnClick: function(component, event, helper) {
         event.stopPropagation();
         helper.openMenu(component);
     },
@@ -78,7 +78,7 @@
         helper.doSearch(component,event,helper,component.get('v.searchTerm'),component);
         component.getEvent('onchange').fire();
     },
-    handleOnblur: function(component, event, helper) {
+    handleOnBlur: function(component, event, helper) {
         var isMobile = component.get('v.isMobile');
         var eventSourceId = event.srcElement.id;
         var mobileInputId = 'strike-multi-select-' + component.get('v.idNumber') + '--mobile';
@@ -88,7 +88,7 @@
             helper.closeMenu(component);
         }
     },
-    handleOnkeyup: function(component, event, helper) {
+    handleOnKeyUp: function(component, event, helper) {
         const KEYCODE_ENTER = 13;
         const KEYCODE_UP = 38;
         const KEYCODE_DOWN = 40;

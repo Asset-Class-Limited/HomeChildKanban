@@ -78,10 +78,10 @@
                     role="combobox"
                     aria-expanded="false"
                     aria-autocomplete="list"
-                    onfocus="{!c.handleOnfocus}"
-                    onclick="{!c.handleOnclick}"
-                    onblur="{!c.handleOnblur}"
-                    onkeyup="{!c.handleOnkeyup}"
+                    onfocus="{!c.handleOnFocus}"
+                    onclick="{!c.handleOnClick}"
+                    onblur="{!c.handleOnBlur}"
+                    onkeyup="{!c.handleOnKeyUp}"
                     disabled="{!v.disabled}"/>
             </div>
             <aura:if isTrue="{!and(v.error, not(empty(v.errorMessage)))}">
@@ -104,8 +104,8 @@
                                 role="combobox"
                                 aria-expanded="false"
                                 aria-autocomplete="list"
-                                onblur="{!c.handleOnblur}"
-                                onkeyup="{!c.handleOnkeyup}"/>
+                                onblur="{!c.handleOnBlur}"
+                                onkeyup="{!c.handleOnKeyUp}"/>
                         </div>
                     </div>
                     <div class="slds-col slds-no-flex slds-p-horizontal--xx-small">
