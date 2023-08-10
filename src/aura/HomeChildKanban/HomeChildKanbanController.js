@@ -43,7 +43,7 @@
                 action.setParams({
                     'objName' : objName,
                     'objFields' : objFields.split(';'),
-                    'kabnanField' : kanbanPicklistField,
+                    'kanbanField' : kanbanPicklistField,
                     'summField' : agrFldFval,
                     'ParentRecId' : recId,
                     'relField' : objRelField,

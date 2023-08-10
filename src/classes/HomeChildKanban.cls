@@ -113,7 +113,7 @@ public with sharing class HomeChildKanban {
     }
 
     @AuraEnabled
-    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kabnanField, String ParentRecId, String relField, List<string> excVal, String summField, String KbObjNameField){
+    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kanbanField, String ParentRecId, String relField, List<string> excVal, String summField, String KbObjNameField){
         //system.debug(objFields);
         if(summField != null){
             objFields.add(summField);
@@ -123,13 +123,13 @@ public with sharing class HomeChildKanban {
                 objFields.add(KbObjNameField);
             }
         }
-        objFields.add(kabnanField);
+        objFields.add(kanbanField);
         Set<string> obFields = new Set<string>(objFields);
         obFields.remove('Id');
         /*Checks if all the requested fields are accessible*/
         if(HomeChildKanbanUtil.checkAccessibleFLS(obFields, objName)){
             Set<string> kfldCheck = new Set<string>();
-            kfldCheck.add(kabnanField);
+            kfldCheck.add(kanbanField);
             /*Checks if the Group By Field is Updatable*/
             if(HomeChildKanbanUtil.checkAccessibleFLS(kfldCheck, objName)){
                 boolean ispdatable = HomeChildKanbanUtil.checkUpdateableFLS(kfldCheck, objName);
@@ -156,7 +156,7 @@ public with sharing class HomeChildKanban {
                     Set<string> excVals = new Set<string>(excVal);
                     Map<string, list<sobject>> recMaps = new Map<string, list<sobject>>();
 
-                    for(Schema.PicklistEntry s: allFieldMap.get(kabnanField).getDescribe().getpicklistValues()){
+                    for(Schema.PicklistEntry s: allFieldMap.get(kanbanField).getDescribe().getpicklistValues()){
                         if(!excVals.contains(s.getValue()) && s.isActive()){
                             Pickvalslst.add(s.getValue());
                             recMaps.put(s.getValue(), new List<sobject>());
@@ -167,7 +167,7 @@ public with sharing class HomeChildKanban {
                     }
 
                     string cObName = actdsc.getLabel();
-                    Schema.DescribeFieldResult utilResult = allFieldMap.get(kabnanField).getDescribe();
+                    Schema.DescribeFieldResult utilResult = allFieldMap.get(kanbanField).getDescribe();
                     string gFldName = utilResult.getLabel();
                     boolean gFldEditable = utilResult.isUpdateable();
                     boolean isObjDeletable = actdsc.isDeletable();
@@ -212,7 +212,7 @@ public with sharing class HomeChildKanban {
                     }
                     qry = qry.removeEnd(',');
 
-                    qry += ' From '+objName+' where '+kabnanField+' in :Pickvalslst';
+                    qry += ' From '+objName+' where '+kanbanField+' in :Pickvalslst';
 
                     if(ParentRecId != '' && ParentRecId != null && relField != '' && relField != null){
                         qry += ' and '+relField+'=\''+ParentRecId+'\'';
@@ -221,11 +221,11 @@ public with sharing class HomeChildKanban {
                     //system.debug('genquery '+ qry);
 
                     for(sobject s: database.query(qry)){
-                        recMaps.get(string.valueOf(s.get(kabnanField))).add(s);
+                        recMaps.get(string.valueOf(s.get(kanbanField))).add(s);
                         if(summField != null){
                             decimal sVal = (Decimal)s.get(summField);
                             if(sVal != null){
-                                aggQMap.put(string.valueOf(s.get(kabnanField)), (Decimal)s.get(summField) + (Decimal)aggQMap.get(string.valueOf(s.get(kabnanField))) );
+                                aggQMap.put(string.valueOf(s.get(kanbanField)), (Decimal)s.get(summField) + (Decimal)aggQMap.get(string.valueOf(s.get(kanbanField))) );
                             }
                         }
                     }
