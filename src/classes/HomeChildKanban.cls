@@ -10,7 +10,7 @@ public with sharing class HomeChildKanban {
     public static string saveConfig(KanbanConfiguration__c obj){
         try{
             if(obj.kanbanDev__Kanban_For__c == 'Child'){
-                obj.kanbanDev__Name_Field__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__Child_Object__c);
+                obj.kanbanDev__Name_Field__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__ChildObject__c);
             }else if(obj.kanbanDev__Kanban_For__c == 'Home'){
                 obj.kanbanDev__Name_Field__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__For_Object__c);
             }

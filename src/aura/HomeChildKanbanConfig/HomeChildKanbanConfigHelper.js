@@ -68,10 +68,10 @@
             sObj.Name = configName;
             sObj.kanbanDev__For_Object__c = ObjectName;
             if(kf != 'Home'){
-                sObj.kanbanDev__Child_Object__c = childObjectName.split('~;')[0];
+                sObj.kanbanDev__ChildObject__c = childObjectName.split('~;')[0];
                 sObj.kanbanDev__Relation_Field__c = childObjectName.split('~;')[1];
             }else{
-                sObj.kanbanDev__Child_Object__c = ObjectName;
+                sObj.kanbanDev__ChildObject__c = ObjectName;
             }
             sObj.kanbanDev__Kanban_For__c = kf;
             sObj.kanbanDev__Summarize_By__c = sumFldName;

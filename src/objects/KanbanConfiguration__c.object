@@ -72,7 +72,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Child_Object__c</fullName>
+        <fullName>ChildObject__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Child Object</label>

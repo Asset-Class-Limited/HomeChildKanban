@@ -22,7 +22,7 @@
                 }), 400);
             }
             var recId = component.get('v.recordId');
-            var objName = recFlds.kanbanDev__Child_Object__c.value;
+            var objName = recFlds.kanbanDev__ChildObject__c.value;
             var objRelField = recFlds.kanbanDev__Relation_Field__c.value;
             var objFields = recFlds.kanbanDev__Fields_To_Show__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__Group_By__c.value;
@@ -36,7 +36,7 @@
             }
             var agrFld = recFlds.kanbanDev__Summarize_By__c.value;
             var agrFldFval = agrFld ? agrFld : null;
-            
+
             if(objName && objFields && kanbanPicklistField){
                 //alert(recId + objName + objRelField + objFields + kanbanPicklistField);
                 var action = component.get('c.getKanban');
@@ -54,7 +54,7 @@
                     /*console.log(resp.getState());
                 console.log(resp.getError());
                 console.clear();
-                console.log(resp.getReturnValue()); */          
+                console.log(resp.getReturnValue()); */
                 helper.spinnerHelper(component, false);
                 if(resp.getState() === 'SUCCESS'){
                     var rVal = resp.getReturnValue();
@@ -87,25 +87,25 @@
                 if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__Name_Field__c])){
                     nameInToast = component.get('v.kwrap').cObjName;
                 }else{
-                	nameInToast = rec[simpleRecord.kanbanDev__Name_Field__c];    
+                	nameInToast = rec[simpleRecord.kanbanDev__Name_Field__c];
                 }
             }else{
                 nameInToast = component.get('v.kwrap').cObjName;
             }
             var kfld = recFlds.kanbanDev__Group_By__c.value;
             var sfield = recFlds.kanbanDev__Summarize_By__c.value;
-            
+
             if(rec[sfield] && !isNaN(rec[sfield])){
                 var smap = recsMap.rollupData;
                 smap[data.from] = smap[data.from] - rec[sfield];
                 smap[data.to] = smap[data.to] + rec[sfield];
                 recsMap.rollupData = smap;
             }
-            
+
             rec[kfld] = data.to;
             recsMap.records[data.to].unshift(rec);
             recsMap.records[data.from].splice(data.pos, 1);
-            
+
             component.set('v.kwrap',recsMap);
             var toastEvent = $A.get("e.force:showToast");
             var action = component.get('c.updateRec');
@@ -180,7 +180,7 @@
             var toastEvent = $A.get("e.force:showToast");
             if(state === 'SUCCESS'){
                 recsMap.records[data.from].splice(data.pos, 1);
-                
+
                 if(rec[sfield] && !isNaN(rec[sfield])){
                     var smap = recsMap.rollupData;
                     smap[data.from] = smap[data.from] - rec[sfield];
@@ -194,7 +194,7 @@
                 });
                 toastEvent.fire();
                 component.set('v.kwrap',recsMap);
-                
+
             }else if(state === 'ERROR'){
                 var errors = res.getError();
                 if (errors) {
@@ -212,7 +212,7 @@
                 });
                 toastEvent.fire();
             }
-            
+
         });
         $A.enqueueAction(action);
     },
@@ -235,7 +235,7 @@
             var recObj = {};
             recObj[simpleRecord.kanbanDev__Relation_Field__c] = recordId;
             createRecordEvent.setParams({
-                "entityApiName": simpleRecord.kanbanDev__Child_Object__c,
+                "entityApiName": simpleRecord.kanbanDev__ChildObject__c,
                 "defaultFieldValues": recObj
             });
             createRecordEvent.fire();
@@ -247,7 +247,7 @@
             var simpleRecord = component.get('v.simpleRecord');
             var relatedListEvent = $A.get("e.force:navigateToRelatedList");
             relatedListEvent.setParams({
-                "relatedListId": simpleRecord.kanbanDev__Child_Object__c,
+                "relatedListId": simpleRecord.kanbanDev__ChildObject__c,
                 "parentRecordId": recordId
             });
             relatedListEvent.fire();
