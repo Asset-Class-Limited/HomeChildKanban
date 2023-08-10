@@ -23,7 +23,7 @@
             }
             var recId = component.get('v.recordId');
             var objName = recFlds.kanbanDev__ChildObject__c.value;
-            var objRelField = recFlds.kanbanDev__Relation_Field__c.value;
+            var objRelField = recFlds.kanbanDev__RelationField__c.value;
             var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__GroupBy__c.value;
             var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
@@ -233,7 +233,7 @@
             var simpleRecord = component.get('v.simpleRecord');
             var createRecordEvent = $A.get("e.force:createRecord");
             var recObj = {};
-            recObj[simpleRecord.kanbanDev__Relation_Field__c] = recordId;
+            recObj[simpleRecord.kanbanDev__RelationField__c] = recordId;
             createRecordEvent.setParams({
                 "entityApiName": simpleRecord.kanbanDev__ChildObject__c,
                 "defaultFieldValues": recObj

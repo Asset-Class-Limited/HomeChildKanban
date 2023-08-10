@@ -161,7 +161,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Relation_Field__c</fullName>
+        <fullName>RelationField__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Relation Field</label>

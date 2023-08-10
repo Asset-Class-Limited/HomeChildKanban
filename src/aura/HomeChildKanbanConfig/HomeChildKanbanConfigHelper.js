@@ -69,7 +69,7 @@
             sObj.kanbanDev__ForObject__c = ObjectName;
             if(kf != 'Home'){
                 sObj.kanbanDev__ChildObject__c = childObjectName.split('~;')[0];
-                sObj.kanbanDev__Relation_Field__c = childObjectName.split('~;')[1];
+                sObj.kanbanDev__RelationField__c = childObjectName.split('~;')[1];
             }else{
                 sObj.kanbanDev__ChildObject__c = ObjectName;
             }

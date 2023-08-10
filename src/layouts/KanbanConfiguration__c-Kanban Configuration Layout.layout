@@ -45,7 +45,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Relation_Field__c</field>
+                <field>RelationField__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
