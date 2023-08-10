@@ -6,7 +6,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 -->
-<aura:component controller="HomeChildKanbanCls" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+<aura:component controller="HomeChildKanban" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
     <aura:attribute name="HeaderTitle" type="string" access='global'/>
     <aura:attribute name="objName" type="string"/>
     <aura:attribute name="objRelField" type="string"/>
@@ -16,18 +16,18 @@
     <aura:attribute name="kanbanHeight" type="integer" default="250" access='global'/>
     <aura:attribute name="ExcVal" type="string" default=""/>
     <aura:attribute name="delInfo" type="object"/>
-    
+
     <aura:attribute name="kanbanConfigId" type="string" access='global'/>
-    
+
     <aura:attribute name="kwrap" type="HomeChildKanbanUtil"/>
-    
+
     <aura:attribute name="isSuccess" type="boolean" default="true"/>
     <aura:attribute name="errorMessage" type="String"/>
-    
+
     <!--<aura:handler name="init" value="this" action="{!c.doInit}"/>-->
     <aura:handler name="kanbanChildChanged" event="c:HomeChildKanbanEvt" action="{!c.childChanged}"/>
     <aura:handler name="kanbanChildDelReq" event="c:HomeChildKanbanDeleteEvt" action="{!c.childDelete}"/>
-    
+
  	<!--{!v.kanbanConfigId.value}
     {!v.record.Name}-->
     <aura:attribute name="record" type="Object"/>
@@ -42,8 +42,8 @@
                       targetError="{!v.recordError}"
                       recordUpdated="{!c.handleRecordUpdated}"
                       />
-    
-    
+
+
     <aura:if isTrue="{!not(empty(v.recordError))}">
         <div class="recordError">
             <ui:message title="Kanban Error" severity="error" closable="true">
@@ -51,7 +51,7 @@
             </ui:message>
         </div>
         <aura:set attribute="else">
-    
+
     <aura:if isTrue="{!v.isSuccess}">
         <lightning:card iconName="utility:kanban">
             <aura:set attribute="title">
@@ -60,7 +60,7 @@
                 <aura:if isTrue="{!not(empty(v.HeaderTitle))}">
                     {!v.HeaderTitle}
                     <aura:set attribute="else">
-                		{!v.kwrap.cObjName + ' Kanban'} 
+                		{!v.kwrap.cObjName + ' Kanban'}
                     </aura:set>
                 </aura:if>
                 </span>
@@ -71,7 +71,7 @@
                     </aura:if>
                 </p>
             </aura:set>
-                
+
             <aura:set attribute="actions">
                 <lightning:buttonGroup >
                     <aura:if isTrue="{!v.kwrap.isCreatable}">
@@ -94,9 +94,9 @@
                 {!v.errorMessage}
             </ui:message>
         </aura:set>
-        
+
     </aura:if>
-    
+
     <section aura:id="srModal" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal">
         <div class="slds-modal__container">
             <header class="slds-modal__header">
@@ -115,5 +115,5 @@
     <div aura:id="modalBkdrp" class="slds-backdrop"></div>
             </aura:set>
     </aura:if>
-    
+
 </aura:component>

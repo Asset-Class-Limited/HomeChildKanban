@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 @isTest
-public class HomeChildKanbanCls_Test {
+public class HomeChildKanbanTest {
 
     public static testmethod void tm1(){
         account a = new account(Name = 'name');
@@ -22,13 +22,13 @@ public class HomeChildKanbanCls_Test {
         lString.add('OwnerId');
         List<string> lStrings = new list<string>();
         lStrings.add('Closed Lost');
-        HomeChildKanbanUtil wrp = HomeChildKanbanCls.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Amount', 'Name');
-        HomeChildKanbanCls.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Name', 'Name');
-        HomeChildKanbanCls.getKanban('opportunity', lString, 'stagenam', string.valueOf(a.id), 'AccountId', null, null, 'Name');
-        HomeChildKanbanCls.getObjs();
-        HomeChildKanbanCls.getObjChilds('Account');
-        HomeChildKanbanCls.getObjFlds('Account');
-        HomeChildKanbanCls.getPickVals('Industry','Account');
+        HomeChildKanbanUtil wrp = HomeChildKanban.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Amount', 'Name');
+        HomeChildKanban.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Name', 'Name');
+        HomeChildKanban.getKanban('opportunity', lString, 'stagenam', string.valueOf(a.id), 'AccountId', null, null, 'Name');
+        HomeChildKanban.getObjs();
+        HomeChildKanban.getObjChilds('Account');
+        HomeChildKanban.getObjFlds('Account');
+        HomeChildKanban.getPickVals('Industry','Account');
         system.assertEquals(wrp.isSuccess, true);
     }
 
@@ -42,8 +42,8 @@ public class HomeChildKanbanCls_Test {
         o.put('CloseDate', Date.today());
         //opportunity o = new opportunity(Name = 'name', AccountId = a.id, StageName = 'Qualification', CloseDate = Date.today());
         insert o;
-        string act = HomeChildKanbanCls.updateRec(string.valueOf(o.id), 'stagename', 'Qualification');
-        HomeChildKanbanCls.updateRec(string.valueOf(o.id)+'a', 'stagenam', 'Qualificatio1');
+        string act = HomeChildKanban.updateRec(string.valueOf(o.id), 'stagename', 'Qualification');
+        HomeChildKanban.updateRec(string.valueOf(o.id)+'a', 'stagenam', 'Qualificatio1');
         system.assertEquals(act, 'true');
     }
 
@@ -57,13 +57,13 @@ public class HomeChildKanbanCls_Test {
         o.put('CloseDate', Date.today());
         //opportunity o = new opportunity(Name = 'name', AccountId = a.id, StageName = 'Qualification', CloseDate = Date.today());
         insert o;
-        HomeChildKanbanCls.deleteRec(o);
+        HomeChildKanban.deleteRec(o);
         system.assertEquals(null, null);
     }
 
     public static testmethod void tm4(){
         KanbanConfiguration__c k = new KanbanConfiguration__c(Name='Test');
-        string res = HomeChildKanbanCls.saveConfig(k);
+        string res = HomeChildKanban.saveConfig(k);
         system.assertEquals(res, 'true');
     }
 

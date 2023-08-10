@@ -11,8 +11,8 @@
     <fullName>Open Source Code</fullName>
     <types>
         <members>HomeChildKanbanCObjUtil</members>
-        <members>HomeChildKanbanCls</members>
-        <members>HomeChildKanbanCls_Test</members>
+        <members>HomeChildKanban</members>
+        <members>HomeChildKanban_Test</members>
         <members>HomeChildKanbanObjUtil</members>
         <members>HomeChildKanbanUtil</members>
         <members>KanbanConfigList</members>
