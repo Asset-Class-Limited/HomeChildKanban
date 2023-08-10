@@ -19,5 +19,5 @@
     <navType>Standard</navType>
     <tabs>KanbanConfiguration__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>KanbanConfiguration_UtilityBar</utilityBar>
+    <utilityBar>KanbanConfigurationUtilityBar</utilityBar>
 </CustomApplication>
