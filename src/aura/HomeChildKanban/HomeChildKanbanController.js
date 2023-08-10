@@ -26,9 +26,9 @@
             var objRelField = recFields.RelationField__c.value;
             var objFields = recFields.FieldsToShow__c.value;
             var kanbanPicklistField = recFields.GroupBy__c.value;
-            var excVal = recFields.ExcludeFromGroupBy__c.value;
+            var excludeValue = recFields.ExcludeFromGroupBy__c.value;
             var KbObjNameField = recFields.NameField__c.value;
-            var ExcFVal = excVal ? excVal.split(';') : '';
+            var ExcFVal = excludeValue ? excludeValue.split(';') : '';
             if(ExcFVal != ''){
                 for(var i=0; i<ExcFVal.length; i++){
                     ExcFVal[i] = ExcFVal[i].trim();
@@ -47,7 +47,7 @@
                     'summarizeField' : agrFieldVal,
                     'ParentRecId' : recId,
                     'relField' : objRelField,
-                    'excVal' : ExcFVal,
+                    'excludeValue' : ExcFVal,
                     'KbObjNameField' : KbObjNameField
                 });
                 action.setCallback(this, function(resp){

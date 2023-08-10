@@ -14,7 +14,7 @@
     <aura:attribute name="kanbanPicklistField" type="string"/>
     <aura:attribute name="kanbanSummaryField" type="string"/>
     <aura:attribute name="kanbanHeight" type="integer" default="350" access='global'/>
-    <aura:attribute name="excVal" type="string" default=""/>
+    <aura:attribute name="excludeValue" type="string" default=""/>
     <aura:attribute name="delInfo" type="object"/>
 
     <aura:attribute name="kanbanConfigId" type="string" access='global'/>
