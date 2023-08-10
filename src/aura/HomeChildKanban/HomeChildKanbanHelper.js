@@ -10,14 +10,14 @@
 	updateChildHelper : function(_component, _recId, _recField, _data) {
 	},
      modalHelper : function(component, modal, backdrop, tf) {
-        var mdl = component.find(modal).getElement();
-        var bkdrp = component.find(backdrop).getElement();
+        var modal = component.find(modal).getElement();
+        var backDrop = component.find(backdrop).getElement();
         if(tf){
-            $A.util.addClass(mdl, 'slds-fade-in-open');
-            $A.util.addClass(bkdrp, 'slds-backdrop_open');
+            $A.util.addClass(modal, 'slds-fade-in-open');
+            $A.util.addClass(backDrop, 'slds-backdrop_open');
         } else {
-            $A.util.removeClass(mdl, 'slds-fade-in-open');
-            $A.util.removeClass(bkdrp, 'slds-backdrop_open');
+            $A.util.removeClass(modal, 'slds-fade-in-open');
+            $A.util.removeClass(backDrop, 'slds-backdrop_open');
         }
     },
     spinnerHelper : function(component, tf){
