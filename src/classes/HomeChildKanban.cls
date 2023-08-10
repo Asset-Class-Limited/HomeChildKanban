@@ -114,7 +114,7 @@ public with sharing class HomeChildKanban {
 
     @AuraEnabled
     public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kanbanField, String ParentRecId, String relField, List<string> excVal, String summarizeField, String KbObjNameField){
-        //system.debug(objFields);
+
         if(summarizeField != null){
             objFields.add(summarizeField);
         }
@@ -126,11 +126,11 @@ public with sharing class HomeChildKanban {
         objFields.add(kanbanField);
         Set<string> obFields = new Set<string>(objFields);
         obFields.remove('Id');
-        /*Checks if all the requested fields are accessible*/
+        /* Checks if all the requested fields are accessible */
         if(HomeChildKanbanUtil.checkAccessibleFLS(obFields, objName)){
             Set<string> kFieldCheck = new Set<string>();
             kFieldCheck.add(kanbanField);
-            /*Checks if the Group By Field is Updatable*/
+            /* Checks if the Group By Field is Updatable */
             if(HomeChildKanbanUtil.checkAccessibleFLS(kFieldCheck, objName)){
                 boolean ispdatable = HomeChildKanbanUtil.checkUpdateableFLS(kFieldCheck, objName);
                 try{
@@ -218,8 +218,6 @@ public with sharing class HomeChildKanban {
                         qry += ' and '+relField+'=\''+ParentRecId+'\'';
                     }
 
-                    //system.debug('genquery '+ qry);
-
                     for(sobject s: database.query(qry)){
                         recMaps.get(string.valueOf(s.get(kanbanField))).add(s);
                         if(summarizeField != null){
@@ -229,7 +227,6 @@ public with sharing class HomeChildKanban {
                             }
                         }
                     }
-                    //system.debug(recMaps);
                     return new HomeChildKanbanUtil(recMaps, Pickvalslst, true, null, gFldName, cObName, agrFieldName, sFldIsCurrency, aggQMap, gFldEditable, isObjDeletable, fieldTypeMap, isObjectCreateable);
                 }catch (exception e){
                     return new HomeChildKanbanUtil(null, null, false, e.getMessage(), null, null, null, null, null, null, null, null, null);
