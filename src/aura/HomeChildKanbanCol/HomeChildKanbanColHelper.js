@@ -8,9 +8,9 @@
 
 ({
     countUpHelper : function(component) {
-        var smap = component.get('v.summaryMap');
-        var psumval = component.get('v.psumval');
-        if(smap){
+        var sMap = component.get('v.summaryMap');
+        var pSumVal = component.get('v.pSumVal');
+        if(sMap){
             var options = {
                 useEasing : true,
                 useGrouping : true,
@@ -18,20 +18,20 @@
                 decimal : '.',
             };
             //console.log(component.get('v.isCurrency'));
-            var ftyp = component.get('v.rsFld');
-            var deci = 0;
-            if(ftyp == "CURRENCY"){
+            var fType = component.get('v.rsFld');
+            var decimalValue = 0;
+            if(fType == "CURRENCY"){
                 options.prefix = $A.get("$Locale.currency");
-            }else if(ftyp == "DOUBLE"){
-                deci = 2;
+            }else if(fType == "DOUBLE"){
+                decimalValue = 2;
             }
             /*if(component.get('v.isCurrency')){
                 options.prefix = $A.get("$Locale.currency");
             }*/
-            if(!isNaN(smap[component.get('v.pickvalue')])){
-                var demo = new CountUp(component.find('cup').getElement(), psumval, smap[component.get('v.pickvalue')], deci, 1, options);
+            if(!isNaN(sMap[component.get('v.pickValue')])){
+                var demo = new CountUp(component.find('cup').getElement(), pSumVal, sMap[component.get('v.pickValue')], decimalValue, 1, options);
                 demo.start();
-                component.set('v.psumval',smap[component.get('v.pickvalue')]);
+                component.set('v.pSumVal',sMap[component.get('v.pickValue')]);
             }
         }
     }

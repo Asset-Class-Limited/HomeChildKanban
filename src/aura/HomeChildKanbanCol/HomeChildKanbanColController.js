@@ -8,7 +8,7 @@
 
 ({
     doInit : function(component, _event, _helper) {
-        component.set('v.recs', component.get('v.recsMap')[component.get('v.pickvalue')]);
+        component.set('v.recs', component.get('v.recsMap')[component.get('v.pickValue')]);
     },
     allowDrop : function(component, event, _helper) {
         event.preventDefault();
@@ -36,7 +36,7 @@
 
     },
     recordsChanged  : function (component, _event, helper) {
-        component.set('v.recs', component.get('v.recsMap')[component.get('v.pickvalue')]);
+        component.set('v.recs', component.get('v.recsMap')[component.get('v.pickValue')]);
         helper.countUpHelper(component);
     },
     sLoaded : function (component, _event, helper) {

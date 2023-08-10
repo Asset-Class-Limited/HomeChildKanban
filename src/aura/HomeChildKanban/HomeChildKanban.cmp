@@ -83,7 +83,7 @@
             <div class="cardClass" style="position:relative;">
                 <div class="kanbanContainerDiv">
                     <aura:iteration items="{!v.kwrap.pickVals}" var="pv">
-                        <c:HomeChildKanbanCol fldList="{!v.record.fields.kanbanDev__FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.kanbanDev__GroupBy__c.value}" pickvalue="{!pv}" pickvalueLength="{!v.kwrap.pickVals.length}" recsMap="{!v.kwrap.records}" summaryMap="{!v.kwrap.rollupData}" rsFld="{!v.kwrap.sFldType}" fieldEditable="{!v.kwrap.isEditable}" objDeletable="{!v.kwrap.isDeletable}" fieldTypeMap="{!v.kwrap.fieldTypeMap}"/>
+                        <c:HomeChildKanbanCol fldList="{!v.record.fields.kanbanDev__FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.kanbanDev__GroupBy__c.value}" pickValue="{!pv}" pickValueLength="{!v.kwrap.pickVals.length}" recsMap="{!v.kwrap.records}" summaryMap="{!v.kwrap.rollupData}" rsFld="{!v.kwrap.sFldType}" fieldEditable="{!v.kwrap.isEditable}" objDeletable="{!v.kwrap.isDeletable}" fieldTypeMap="{!v.kwrap.fieldTypeMap}"/>
                     </aura:iteration>
                 </div>
                 <lightning:spinner variant="brand" size="large" aura:id="spinner" class="slds-hide"/>

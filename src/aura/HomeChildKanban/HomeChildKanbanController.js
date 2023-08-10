@@ -94,10 +94,10 @@
             var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
 
             if(rec[sfield] && !isNaN(rec[sfield])){
-                var smap = recsMap.rollupData;
-                smap[data.from] = smap[data.from] - rec[sfield];
-                smap[data.to] = smap[data.to] + rec[sfield];
-                recsMap.rollupData = smap;
+                var sMap = recsMap.rollupData;
+                sMap[data.from] = sMap[data.from] - rec[sfield];
+                sMap[data.to] = sMap[data.to] + rec[sfield];
+                recsMap.rollupData = sMap;
             }
 
             rec[kfld] = data.to;
@@ -179,9 +179,9 @@
                 recsMap.records[data.from].splice(data.pos, 1);
 
                 if(rec[sfield] && !isNaN(rec[sfield])){
-                    var smap = recsMap.rollupData;
-                    smap[data.from] = smap[data.from] - rec[sfield];
-                    recsMap.rollupData = smap;
+                    var sMap = recsMap.rollupData;
+                    sMap[data.from] = sMap[data.from] - rec[sfield];
+                    recsMap.rollupData = sMap;
                 }
                 toastEvent.setParams({
                     "title": "Success",
