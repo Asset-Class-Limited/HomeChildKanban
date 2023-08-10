@@ -82,15 +82,13 @@
         }
     },
     closeMenu: function(component) {
-        var isMobile = component.get('v.isMobile');
-
         component.set('v.menuIsOpen', false);
         component.set('v.focusIndex', null);
     },
     clearInputValue: function(component){
         component.find('inputField').getElement().value = '';
         component.set('v.searchTerm', null);
-        this.findvalidChildComponents(component);
+        this.findValidChildComponents(component);
         var validChildComponents = component.get('v.validChildComponents');
         validChildComponents.forEach(function(child){
             child.filterBy('');
@@ -111,7 +109,7 @@
     addOptionToList: function(component, event, helper) {
 
         var sourceCmpValue = event.getParam('data').value;
-        helper.findvalidChildComponents(component, event, helper);
+        helper.findValidChildComponents(component, event, helper);
         var dropDownOptions = component.get('v.validChildComponents');
         component.set('v.validChildComponents', null);
 
@@ -145,7 +143,7 @@
         if (focusIndex == null) {
             return
         }
-        helper.findvalidChildComponents(component, event, helper);
+        helper.findValidChildComponents(component, event, helper);
 
         var childCmps = component.get('v.validChildComponents');
 
@@ -160,7 +158,7 @@
 
         if (menuIsOpen) {
             var focusIndex = component.get('v.focusIndex');
-            helper.findvalidChildComponents(component, event, helper);
+            helper.findValidChildComponents(component, event, helper);
             var childCmps = component.get('v.validChildComponents');
             var indecesForHidden = [];
             var indecesToShow = [];
@@ -195,7 +193,7 @@
 
         if (menuIsOpen) {
             var focusIndex = component.get('v.focusIndex');
-            helper.findvalidChildComponents(component, event, helper);
+            helper.findValidChildComponents(component, event, helper);
             var childCmps = component.get('v.validChildComponents');
 
 
@@ -241,7 +239,7 @@
         if (focusIndex == null) {
             return;
         }
-        helper.findvalidChildComponents(component, event, helper);
+        helper.findValidChildComponents(component, event, helper);
         var childCmps = component.get('v.validChildComponents');
         component.set('v.validChildComponents', null);
 
@@ -342,7 +340,7 @@
         }
         helper.setFocus(component, event, helper, parentCmp);
     },
-    findvalidChildComponents: function(component) {
+    findValidChildComponents: function(component) {
         var childCmps = component.get('v.body');
 
         childCmps.forEach(function(child) {
