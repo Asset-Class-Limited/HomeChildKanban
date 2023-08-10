@@ -24,11 +24,11 @@
         data.to = event.currentTarget.getAttribute('data-Pick-Val');
         component.set('v.goingTo', event.currentTarget.getAttribute('data-Pick-Val'));
 
-        var kcevt = component.getEvent('kanbanChildChanged');
-        kcevt.setParams({
+        var kcEvent = component.getEvent('kanbanChildChanged');
+        kcEvent.setParams({
             "KanbanChildChange" : data
         });
-        kcevt.fire();
+        kcEvent.fire();
 
         var ulEle = component.find('hckCol').getElement();
         if(!ulEle.scrollTop == 0)

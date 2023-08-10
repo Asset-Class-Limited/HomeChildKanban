@@ -71,11 +71,11 @@
             var dObj = {};
             dObj.from = component.get('v.rec')[component.get('v.pVal')];
             dObj.pos = parseInt(component.get('v.recPos'));
-            var kcevt = component.getEvent('kanbanChildDeleteEvent');
-            kcevt.setParams({
+            var kcEvent = component.getEvent('kanbanChildDeleteEvent');
+            kcEvent.setParams({
                 "KanbanChildDelete" : dObj
             });
-            kcevt.fire();
+            kcEvent.fire();
         }
     }
 })
