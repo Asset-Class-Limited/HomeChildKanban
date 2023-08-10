@@ -13,7 +13,7 @@
     <aura:attribute name="objFields" type="string" default="Name"/>
     <aura:attribute name="kanbanPicklistField" type="string"/>
     <aura:attribute name="kanbanSummaryField" type="string"/>
-    <aura:attribute name="kanbanHeight" type="integer" default="250" access='global'/>
+    <aura:attribute name="kanbanHeight" type="integer" default="350" access='global'/>
     <aura:attribute name="excVal" type="string" default=""/>
     <aura:attribute name="delInfo" type="object"/>
 
