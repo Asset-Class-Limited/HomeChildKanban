@@ -88,9 +88,9 @@ License: BSD 3-Clause License
     clearInputValue: function(component){
         component.find('inputField').getElement().value = '';
         component.set('v.searchTerm', null);
-        this.findValidChildCmps(component);
-        var validChildCmps = component.get('v.validChildCmps');
-        validChildCmps.forEach(function(child){
+        this.findvalidChildComponents(component);
+        var validChildComponents = component.get('v.validChildComponents');
+        validChildComponents.forEach(function(child){
             child.filterBy('');
         })
 
@@ -109,9 +109,9 @@ License: BSD 3-Clause License
     addOptionToList: function(component, event, helper) {
 
         var sourceCmpValue = event.getParam('data').value;
-        helper.findValidChildCmps(component, event, helper);
-        var dropDownOptions = component.get('v.validChildCmps');
-        component.set('v.validChildCmps', null);
+        helper.findvalidChildComponents(component, event, helper);
+        var dropDownOptions = component.get('v.validChildComponents');
+        component.set('v.validChildComponents', null);
 
         dropDownOptions.forEach(function(option) {
             if (option.get('v.value') === sourceCmpValue) {
@@ -143,23 +143,23 @@ License: BSD 3-Clause License
         if (focusIndex == null) {
             return
         }
-        helper.findValidChildCmps(component, event, helper);
+        helper.findvalidChildComponents(component, event, helper);
 
-        var childCmps = component.get('v.validChildCmps');
+        var childCmps = component.get('v.validChildComponents');
 
         if (focusIndex < childCmps.length) {
             childCmps[focusIndex].select();
             helper.closeMenu(component);
         }
-        component.set('v.validChildCmps', null);
+        component.set('v.validChildComponents', null);
     },
     moveRecordFocusUp: function(component, event, helper) {
         var menuIsOpen = component.get('v.menuIsOpen');
 
         if (menuIsOpen) {
             var focusIndex = component.get('v.focusIndex');
-            helper.findValidChildCmps(component, event, helper);
-            var childCmps = component.get('v.validChildCmps');
+            helper.findvalidChildComponents(component, event, helper);
+            var childCmps = component.get('v.validChildComponents');
             var indecesForHidden = [];
             var indecesToShow = [];
 
@@ -193,8 +193,8 @@ License: BSD 3-Clause License
 
         if (menuIsOpen) {
             var focusIndex = component.get('v.focusIndex');
-            helper.findValidChildCmps(component, event, helper);
-            var childCmps = component.get('v.validChildCmps');
+            helper.findvalidChildComponents(component, event, helper);
+            var childCmps = component.get('v.validChildComponents');
 
 
             var indecesForHidden = [];
@@ -239,9 +239,9 @@ License: BSD 3-Clause License
         if (focusIndex == null) {
             return;
         }
-        helper.findValidChildCmps(component, event, helper);
-        var childCmps = component.get('v.validChildCmps');
-        component.set('v.validChildCmps', null);
+        helper.findvalidChildComponents(component, event, helper);
+        var childCmps = component.get('v.validChildComponents');
+        component.set('v.validChildComponents', null);
 
         var focusScrollTop = 0;
         var focusScrollBottom = 0;
@@ -340,14 +340,14 @@ License: BSD 3-Clause License
         }
         helper.setFocus(component, event, helper, parentCmp);
     },
-    findValidChildCmps: function(component) {
+    findvalidChildComponents: function(component) {
         var childCmps = component.get('v.body');
 
         childCmps.forEach(function(child) {
             if ($A.util.isUndefined(child.filterBy)) {
-                component.set('v.validChildCmps', child.get('v.body'));
+                component.set('v.validChildComponents', child.get('v.body'));
             } else {
-                component.set('v.validChildCmps', childCmps);
+                component.set('v.validChildComponents', childCmps);
             }
         })
     },

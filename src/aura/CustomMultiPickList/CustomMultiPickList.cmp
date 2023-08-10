@@ -35,7 +35,7 @@ License: BSD 3-Clause License
     <aura:attribute name="focusIndex" type="Integer" access="private" description="Index to determine focus location when keyboard is used"/>
     <aura:attribute name="menuIsOpen" type="Boolean" access="private" description="toggles the slds-is-open class for the lookup menu"/>
     <aura:attribute name="selectedOptionPills" type="Object[]" access="private" description="pills to be populated when an option is selected from the dropdown"/>
-    <aura:attribute name="validChildCmps" type="Object[]" access="private" description="stores valid child components to utilize when an iterator is used"/>
+    <aura:attribute name="validChildComponents" type="Object[]" access="private" description="stores valid child components to utilize when an iterator is used"/>
     <aura:attribute name="alreadyRendered" type="Boolean" access="private" description="is set to true after the initial render"/>
     <aura:attribute name="isMobile" type="Boolean" default="{!false}" description="Determines if the user is in Salesforce1" access="private"/>
     <aura:attribute name="allChildrenFiltered" type="Boolean" description="is set to true if none of the strikeOption components are displayed" default="{!false}"/>
@@ -128,7 +128,7 @@ License: BSD 3-Clause License
         <aura:if isTrue="{!not(empty(v.selectedOptionPills))}">
             <div aura:id="optionPillContainer" class="slds-pill_container slds-pill_container--bare slds-wrap">
                 <aura:iteration items="{!v.selectedOptionPills}" var="pill">
-                    <span class="smsp-pill"><c:customPill label="{!pill.label}" value="{!pill.value}" iconName="{!pill.iconName}" destroyable="{!pill.destroyable}" /></span>
+                    <span class="smsp-pill"><c:CustomPill label="{!pill.label}" value="{!pill.value}" iconName="{!pill.iconName}" destroyable="{!pill.destroyable}" /></span>
                 </aura:iteration>
             </div>
         </aura:if>
