@@ -33,7 +33,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Summarize_By__c</field>
+                <field>SummarizeBy__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -34,7 +34,7 @@
                     ExcFVal[i] = ExcFVal[i].trim();
                 }
             }
-            var agrFld = recFlds.kanbanDev__Summarize_By__c.value;
+            var agrFld = recFlds.kanbanDev__SummarizeBy__c.value;
             var agrFldFval = agrFld ? agrFld : null;
 
             if(objName && objFields && kanbanPicklistField){
@@ -93,7 +93,7 @@
                 nameInToast = component.get('v.kwrap').cObjName;
             }
             var kfld = recFlds.kanbanDev__GroupBy__c.value;
-            var sfield = recFlds.kanbanDev__Summarize_By__c.value;
+            var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
 
             if(rec[sfield] && !isNaN(rec[sfield])){
                 var smap = recsMap.rollupData;
@@ -170,7 +170,7 @@
         var rec = recsMap.records[data.from][data.pos];
         console.log(rec);
         var action = component.get('c.deleteRec');
-        var sfield = recFlds.kanbanDev__Summarize_By__c.value;
+        var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
         action.setParams({
             'obj' : rec
         });

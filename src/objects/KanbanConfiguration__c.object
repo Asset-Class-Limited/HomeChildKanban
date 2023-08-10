@@ -172,7 +172,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Summarize_By__c</fullName>
+        <fullName>SummarizeBy__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Summarize By</label>

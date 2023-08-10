@@ -48,7 +48,7 @@
         <members>KanbanConfiguration__c.KanbanFor__c</members>
         <members>KanbanConfiguration__c.NameField__c</members>
         <members>KanbanConfiguration__c.RelationField__c</members>
-        <members>KanbanConfiguration__c.Summarize_By__c</members>
+        <members>KanbanConfiguration__c.SummarizeBy__c</members>
         <name>CustomField</name>
     </types>
     <types>
