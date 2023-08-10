@@ -7,17 +7,17 @@
  */
 -->
 <aura:component controller="HomeChildKanban" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
-    <aura:attribute name="headerTitle" type="string" access='global'/>
+    <aura:attribute name="headerTitle" type="string" access="global"/>
     <aura:attribute name="objName" type="string"/>
     <aura:attribute name="objRelField" type="string"/>
     <aura:attribute name="objFields" type="string" default="Name"/>
     <aura:attribute name="kanbanPicklistField" type="string"/>
     <aura:attribute name="kanbanSummaryField" type="string"/>
-    <aura:attribute name="kanbanHeight" type="integer" default="350" access='global'/>
+    <aura:attribute name="kanbanHeight" type="integer" default="350" access="global"/>
     <aura:attribute name="excludeValue" type="string" default=""/>
     <aura:attribute name="delInfo" type="object"/>
 
-    <aura:attribute name="kanbanConfigId" type="string" access='global'/>
+    <aura:attribute name="kanbanConfigId" type="string" access="global"/>
 
     <aura:attribute name="kanbanWrap" type="HomeChildKanbanUtil"/>
 
