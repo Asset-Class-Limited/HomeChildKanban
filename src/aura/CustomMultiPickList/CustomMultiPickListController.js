@@ -1,11 +1,13 @@
 /*
-Strike by Appiphony
-Version: 1.0.0
-Website: http://www.lightningstrike.io
-GitHub: https://github.com/appiphony/Strike-Components
-License: BSD 3-Clause License
-*/
+    Strike by Appiphony
+    Version: 1.0.0
+    Website: http://www.lightningstrike.io
+    GitHub: https://github.com/appiphony/Strike-Components
+    License: BSD 3-Clause License
 
+    This component is part of the Kanban project
+    It may have some differences to meet Asset Class code standards
+*/
 ({
     onInit: function(component, event, helper) {
         // create a pill component with null value and label to enter the markup into cache
@@ -115,13 +117,13 @@ License: BSD 3-Clause License
             helper.doSearch(component, event, helper, searchTerm, component);
         }
     },
-    showError: function(component, event, helper) {
+    showError: function(component, event, _helper) {
         var errorMessage = event.getParam('arguments').errorMessage;
 
         component.set('v.errorMessage', errorMessage);
         component.set('v.error', true);
     },
-    hideError: function(component, event, helper) {
+    hideError: function(component, _event, _helper) {
         component.set('v.errorMessage', null);
         component.set('v.error', false);
     },

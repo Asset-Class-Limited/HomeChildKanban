@@ -1,12 +1,15 @@
 /*
-Strike by Appiphony
-Version: 1.0.0
-Website: http://www.lightningstrike.io
-GitHub: https://github.com/appiphony/Strike-Components
-License: BSD 3-Clause License
+    Strike by Appiphony
+    Version: 1.0.0
+    Website: http://www.lightningstrike.io
+    GitHub: https://github.com/appiphony/Strike-Components
+    License: BSD 3-Clause License
+
+    This component is part of the Kanban project
+    It may have some differences to meet Asset Class code standards
 */
 ({
-    addToComponentValue: function(component, event, helper) {
+    addToComponentValue: function(component, event, _helper) {
         var selectedOptionValue = event.getParams('params').data.value;
         var componentValue = component.get('v.value');
         var valueArray = !componentValue ? [] : componentValue.split(';');
@@ -19,12 +22,11 @@ License: BSD 3-Clause License
         component.set('v.value', newValue);
 
     },
-    removeOptionFromList: function(component, event, helper) {
-
+    removeOptionFromList: function(_component, event, _helper) {
         var sourceCmp = event.getSource();
         sourceCmp.set('v.hidden', true);
     },
-    createOptionPill: function(component, event, helper) {
+    createOptionPill: function(component, event, _helper) {
         var sourceValue, sourceLabel, sourceIconName;
         if (event.getName() == 'CustomEventNotifyParent') {
             sourceValue = event.getParams('params').data.value;

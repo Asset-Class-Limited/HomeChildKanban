@@ -1,12 +1,15 @@
 /*
-Strike by Appiphony
-Version: 1.0.0
-Website: http://www.lightningstrike.io
-GitHub: https://github.com/appiphony/Strike-Components
-License: BSD 3-Clause License
+    Strike by Appiphony
+    Version: 1.0.0
+    Website: http://www.lightningstrike.io
+    GitHub: https://github.com/appiphony/Strike-Components
+    License: BSD 3-Clause License
+
+    This component is part of the Kanban project
+    It may have some differences to meet Asset Class code standards
 */
 ({
-    updateLabel: function(component, event, helper) {
+    updateLabel: function(component, event, _helper) {
         var optionLabel = component.get('v.label');
         var optionLabelLc = $A.util.isEmpty(optionLabel) ? '' : optionLabel.toLowerCase();
         var searchTerm = event.getParam('arguments');
