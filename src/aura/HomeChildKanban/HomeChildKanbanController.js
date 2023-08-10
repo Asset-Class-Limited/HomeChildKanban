@@ -157,11 +157,11 @@
     childDelete : function(component, event, helper) {
         var data = event.getParam('KanbanChildDelete');
         component.set('v.delInfo', data);
-        helper.modalHelper(component, 'srModal', 'modalBkdrp', true);
+        helper.modalHelper(component, 'srModal', 'modalBackDrop', true);
     },
     deleteRecord : function(component, _event, helper) {
         var recFields = component.get('v.record').fields;
-        helper.modalHelper(component, 'srModal', 'modalBkdrp', false);
+        helper.modalHelper(component, 'srModal', 'modalBackDrop', false);
         helper.spinnerHelper(component, true);
         var data = component.get('v.delInfo');
         console.log(data);
@@ -216,7 +216,7 @@
         $A.enqueueAction(action);
     },
     closeModal : function(component, _event, helper) {
-        helper.modalHelper(component, 'srModal', 'modalBkdrp', false);
+        helper.modalHelper(component, 'srModal', 'modalBackDrop', false);
         component.set('v.delInfo', null);
     },
     initiateNewRecordCreation : function(component, _event, _helper) {

@@ -112,7 +112,7 @@
             </footer>
         </div>
     </section>
-    <div aura:id="modalBkdrp" class="slds-backdrop"></div>
+    <div aura:id="modalBackDrop" class="slds-backdrop"></div>
             </aura:set>
     </aura:if>
 
