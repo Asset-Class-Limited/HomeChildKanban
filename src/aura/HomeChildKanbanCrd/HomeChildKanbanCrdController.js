@@ -71,7 +71,7 @@
             var dObj = {};
             dObj.from = component.get('v.rec')[component.get('v.pVal')];
             dObj.pos = parseInt(component.get('v.recPos'));
-            var kcevt = component.getEvent('kanbanChildDelReq');
+            var kcevt = component.getEvent('kanbanChildDeleteEvent');
             kcevt.setParams({
                 "KanbanChildDelete" : dObj
             });
