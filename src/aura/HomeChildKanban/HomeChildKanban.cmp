@@ -19,7 +19,7 @@
 
     <aura:attribute name="kanbanConfigId" type="string" access='global'/>
 
-    <aura:attribute name="kwrap" type="HomeChildKanbanUtil"/>
+    <aura:attribute name="kanbanWrap" type="HomeChildKanbanUtil"/>
 
     <aura:attribute name="isSuccess" type="boolean" default="true"/>
     <aura:attribute name="errorMessage" type="String"/>
@@ -60,21 +60,21 @@
                 <aura:if isTrue="{!not(empty(v.headerTitle))}">
                     {!v.headerTitle}
                     <aura:set attribute="else">
-                		{!v.kwrap.cObjName + ' Kanban'}
+                		{!v.kanbanWrap.cObjName + ' Kanban'}
                     </aura:set>
                 </aura:if>
                 </span>
                 <p class="slds-truncate">
-                    <span class="slds-text-title_caps">{!'grouped by '+ v.kwrap.gFieldName}</span>
-                    <aura:if isTrue="{!not(empty(v.kwrap.sumField))}">
-                        <span class="slds-text-title_caps">{!' • Summarized by '+ v.kwrap.sumField}</span>
+                    <span class="slds-text-title_caps">{!'grouped by '+ v.kanbanWrap.gFieldName}</span>
+                    <aura:if isTrue="{!not(empty(v.kanbanWrap.sumField))}">
+                        <span class="slds-text-title_caps">{!' • Summarized by '+ v.kanbanWrap.sumField}</span>
                     </aura:if>
                 </p>
             </aura:set>
 
             <aura:set attribute="actions">
                 <lightning:buttonGroup >
-                    <aura:if isTrue="{!v.kwrap.isCreatable}">
+                    <aura:if isTrue="{!v.kanbanWrap.isCreatable}">
                         <lightning:button label="New" variant="neutral" onclick="{!c.initiateNewRecordCreation}"/>
                     </aura:if>
                     <lightning:buttonIcon iconName="utility:refresh" variant="neutral" onclick="{!c.handleRecordUpdated}" alternativeText="Refresh Data" aura:id="refreshButton"/>
@@ -82,8 +82,8 @@
         		</aura:set>
             <div class="cardClass" style="position:relative;">
                 <div class="kanbanContainerDiv">
-                    <aura:iteration items="{!v.kwrap.pickVals}" var="pv">
-                        <c:HomeChildKanbanCol fldList="{!v.record.fields.kanbanDev__FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.kanbanDev__GroupBy__c.value}" pickValue="{!pv}" pickValueLength="{!v.kwrap.pickVals.length}" recsMap="{!v.kwrap.records}" summaryMap="{!v.kwrap.rollupData}" rsFld="{!v.kwrap.sFldType}" fieldEditable="{!v.kwrap.isEditable}" objDeletable="{!v.kwrap.isDeletable}" fieldTypeMap="{!v.kwrap.fieldTypeMap}"/>
+                    <aura:iteration items="{!v.kanbanWrap.pickVals}" var="pv">
+                        <c:HomeChildKanbanCol fldList="{!v.record.fields.kanbanDev__FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.kanbanDev__GroupBy__c.value}" pickValue="{!pv}" pickValueLength="{!v.kanbanWrap.pickVals.length}" recsMap="{!v.kanbanWrap.records}" summaryMap="{!v.kanbanWrap.rollupData}" rsFld="{!v.kanbanWrap.sFldType}" fieldEditable="{!v.kanbanWrap.isEditable}" objDeletable="{!v.kanbanWrap.isDeletable}" fieldTypeMap="{!v.kanbanWrap.fieldTypeMap}"/>
                     </aura:iteration>
                 </div>
                 <lightning:spinner variant="brand" size="large" aura:id="spinner" class="slds-hide"/>

@@ -63,7 +63,7 @@
                         for(var i=0; i<rVal.records.length; i++){
                             rVal.records[i].kanbanfield = rVal.records[i][kanbanPicklistField];
                         }
-                        component.set('v.kwrap',rVal);
+                        component.set('v.kanbanWrap',rVal);
                     }else{
                         component.set('v.errorMessage', rVal.errorMessage);
                     }
@@ -77,18 +77,18 @@
         var recFlds = component.get('v.record').fields;
         var data = event.getParam('KanbanChildChange');
         if(data.from != data.to){
-            var recsMap = component.get('v.kwrap');
+            var recsMap = component.get('v.kanbanWrap');
             var rec = recsMap.records[data.from][data.pos];
             var nameInToast;
             var simpleRecord = component.get('v.simpleRecord');
             if(!$A.util.isUndefinedOrNull(simpleRecord.kanbanDev__NameField__c) && simpleRecord.kanbanDev__NameField__c != 'false'){
                 if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__NameField__c])){
-                    nameInToast = component.get('v.kwrap').cObjName;
+                    nameInToast = component.get('v.kanbanWrap').cObjName;
                 }else{
                 	nameInToast = rec[simpleRecord.kanbanDev__NameField__c];
                 }
             }else{
-                nameInToast = component.get('v.kwrap').cObjName;
+                nameInToast = component.get('v.kanbanWrap').cObjName;
             }
             var kfld = recFlds.kanbanDev__GroupBy__c.value;
             var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
@@ -104,7 +104,7 @@
             recsMap.records[data.to].unshift(rec);
             recsMap.records[data.from].splice(data.pos, 1);
 
-            component.set('v.kwrap',recsMap);
+            component.set('v.kanbanWrap',recsMap);
             var toastEvent = $A.get("e.force:showToast");
             var action = component.get('c.updateRec');
             action.setParams({
@@ -146,7 +146,7 @@
                     rec[kfld] = data.from;
                     recsMap.records[data.to].splice(0, 1);
                     recsMap.records[data.from].splice(data.pos, 0, rec);
-                    component.set('v.kwrap',recsMap);
+                    component.set('v.kanbanWrap',recsMap);
                 }
             });
             $A.enqueueAction(action);
@@ -163,7 +163,7 @@
         helper.spinnerHelper(component, true);
         var data = component.get('v.delInfo');
         console.log(data);
-        var recsMap = component.get('v.kwrap');
+        var recsMap = component.get('v.kanbanWrap');
         var rec = recsMap.records[data.from][data.pos];
         console.log(rec);
         var action = component.get('c.deleteRec');
@@ -190,7 +190,7 @@
                     "message" : "The record has been delete successfully."
                 });
                 toastEvent.fire();
-                component.set('v.kwrap',recsMap);
+                component.set('v.kanbanWrap',recsMap);
 
             }else if(state === 'ERROR'){
                 var errors = res.getError();
