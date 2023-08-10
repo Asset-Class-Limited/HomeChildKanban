@@ -34,7 +34,6 @@
         <members>customPill</members>
         <members>customSelect</members>
         <members>defaultTokens</members>
-        <members>sobjectselected</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
