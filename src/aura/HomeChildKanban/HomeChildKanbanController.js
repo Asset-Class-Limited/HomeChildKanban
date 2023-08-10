@@ -26,9 +26,9 @@
             var objRelField = recFlds.kanbanDev__RelationField__c.value;
             var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__GroupBy__c.value;
-            var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
+            var excVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
             var KbObjNameField = recFlds.kanbanDev__NameField__c.value;
-            var ExcFVal = ExcVal ? ExcVal.split(';') : '';
+            var ExcFVal = excVal ? excVal.split(';') : '';
             if(ExcFVal != ''){
                 for(var i=0; i<ExcFVal.length; i++){
                     ExcFVal[i] = ExcFVal[i].trim();
@@ -47,7 +47,7 @@
                     'summField' : agrFldFval,
                     'ParentRecId' : recId,
                     'relField' : objRelField,
-                    'ExcVal' : ExcFVal,
+                    'excVal' : ExcFVal,
                     'KbObjNameField' : KbObjNameField
                 });
                 action.setCallback(this, function(resp){

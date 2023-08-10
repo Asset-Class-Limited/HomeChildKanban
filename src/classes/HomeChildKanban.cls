@@ -113,7 +113,7 @@ public with sharing class HomeChildKanban {
     }
 
     @AuraEnabled
-    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kabnanField, String ParentRecId, String relField, List<string> ExcVal, String summField, String KbObjNameField){
+    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kabnanField, String ParentRecId, String relField, List<string> excVal, String summField, String KbObjNameField){
         //system.debug(objFields);
         if(summField != null){
             objFields.add(summField);
@@ -153,11 +153,11 @@ public with sharing class HomeChildKanban {
                     }
 
                     List<string> Pickvalslst = new List<String>();
-                    Set<string> ExcVals = new Set<string>(ExcVal);
+                    Set<string> excVals = new Set<string>(excVal);
                     Map<string, list<sobject>> recMaps = new Map<string, list<sobject>>();
 
                     for(Schema.PicklistEntry s: allFieldMap.get(kabnanField).getDescribe().getpicklistValues()){
-                        if(!ExcVals.contains(s.getValue()) && s.isActive()){
+                        if(!excVals.contains(s.getValue()) && s.isActive()){
                             Pickvalslst.add(s.getValue());
                             recMaps.put(s.getValue(), new List<sobject>());
                             if(summField != null){
