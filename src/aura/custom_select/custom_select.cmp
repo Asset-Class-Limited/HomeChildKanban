@@ -46,9 +46,9 @@ License: BSD 3-Clause License
     <aura:handler name="change" value="{!v.value}" action="{!c.handleValueChange}" />
 
     <aura:handler event="aura:doneRendering" action="{!c.doneRendering}" />
-    <aura:handler name="custom_evt_notifyParent" event="c:custom_event" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked" />
+    <aura:handler name="custom_evt_notifyParent" event="c:customEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked" />
 
-    <aura:registerEvent name="onchange" type="c:custom_event"/>
+    <aura:registerEvent name="onchange" type="c:customEvent"/>
 
     <!-- Strike Select -->
     <div class="{!'slds-form-element ' + if(v.error, 'slds-has-error ', '') + if(v.isMobile, 'ss-picklist--mobile ', '') + v.class}">
@@ -64,7 +64,7 @@ License: BSD 3-Clause License
             </c:strike_tooltip>-->
         </aura:if>
         <input name="{!v.name}" value="{!v.value}" type="hidden" />
-        
+
         <div class="{!'slds-picklist slds-dropdown-trigger slds-dropdown-trigger--click' + if(v.openMenu, ' slds-is-open', '') + if(v.disabled, ' ss-disabled', '')}" aria-expanded="true">
             <div class="slds-form-element__control">
                 <div aura:id="dropdown-trigger" class="slds-button slds-button--neutral slds-input slds-picklist__input slds-text-color--default slds-picklist__label ss-menu-button" aria-haspopup="true" tabindex="0" onfocus="{!c.toggleMenu}" onclick="{!c.stopProp}">
@@ -74,7 +74,7 @@ License: BSD 3-Clause License
                         </aura:if>
                         <aura:if isTrue="{!v.customIcon}">
                             <span class="slds-icon_container">
-                               
+
                             </span>
                         </aura:if>
                         {!if(empty(v.valueLabel), v.placeholder, v.valueLabel)}
@@ -119,6 +119,6 @@ License: BSD 3-Clause License
                 <div class="slds-form-element__help">{!v.errorMessage}</div>
             </aura:if>
         </div>
-        
+
     </div>
 </aura:component>

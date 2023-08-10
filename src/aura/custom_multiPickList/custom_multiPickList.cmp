@@ -43,11 +43,11 @@ License: BSD 3-Clause License
     <aura:attribute name="searchTerm" type="String" description="String value of the user's entered search term"/>
 
     <!-- Event registration and handlers -->
-    <aura:registerEvent name="onchange" type="c:custom_event"/>
+    <aura:registerEvent name="onchange" type="c:customEvent"/>
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="aura:doneRendering" action="{!c.handleDoneRendering}"/>
-    <aura:handler name="custom_evt_notifyParent" event="c:custom_event" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
-    <aura:handler name="strike_evt_componentDestroyed" event="c:custom_event" action="{!c.handleComponentDestroyed}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
+    <aura:handler name="custom_evt_notifyParent" event="c:customEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
+    <aura:handler name="strike_evt_componentDestroyed" event="c:customEvent" action="{!c.handleComponentDestroyed}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
 
     <!-- Strike MultiSelect -->
     <div aura:id="multiSelectMenu" class="{!'slds-form-element slds-lookup ' + if(v.isMobile, 'smsp-picklist--mobile ', '') + if(v.menuIsOpen, 'slds-is-open ', '') + v.class}" data-select="single">
@@ -128,7 +128,7 @@ License: BSD 3-Clause License
         <aura:if isTrue="{!not(empty(v.selectedOptionPills))}">
             <div aura:id="optionPillContainer" class="slds-pill_container slds-pill_container--bare slds-wrap">
                 <aura:iteration items="{!v.selectedOptionPills}" var="pill">
-                    <span class="smsp-pill"><c:custom_pill label="{!pill.label}" value="{!pill.value}" iconName="{!pill.iconName}" destroyable="{!pill.destroyable}" /></span>
+                    <span class="smsp-pill"><c:customPill label="{!pill.label}" value="{!pill.value}" iconName="{!pill.iconName}" destroyable="{!pill.destroyable}" /></span>
                 </aura:iteration>
             </div>
         </aura:if>

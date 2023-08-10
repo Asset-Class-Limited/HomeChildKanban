@@ -26,12 +26,12 @@
         <members>HomeChildKanbanDeleteEvt</members>
         <members>HomeChildKanbanEvt</members>
         <members>RemoveValidations</members>
-        <members>custom_event</members>
+        <members>customEvent</members>
         <members>custom_evt_notifyParent</members>
         <members>custom_multiPickList</members>
         <members>custom_option</members>
         <members>custom_optionGroup</members>
-        <members>custom_pill</members>
+        <members>customPill</members>
         <members>custom_select</members>
         <members>defaultTokens</members>
         <members>sobjectselected</members>
