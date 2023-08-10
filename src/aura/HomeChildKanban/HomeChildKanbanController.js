@@ -61,7 +61,7 @@
                     component.set('v.isSuccess', rVal.isSuccess);
                     if(rVal.isSuccess){
                         for(var i=0; i<rVal.records.length; i++){
-                            rVal.records[i].kanbanfield = rVal.records[i][kanbanPicklistField];
+                            rVal.records[i].kanbanField = rVal.records[i][kanbanPicklistField];
                         }
                         component.set('v.kanbanWrap',rVal);
                     } else {
