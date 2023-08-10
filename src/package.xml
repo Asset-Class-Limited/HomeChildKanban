@@ -28,7 +28,7 @@
         <members>RemoveValidations</members>
         <members>customEvent</members>
         <members>custom_evt_notifyParent</members>
-        <members>custom_multiPickList</members>
+        <members>customMultiPickList</members>
         <members>custom_option</members>
         <members>customOptionGroup</members>
         <members>customPill</members>

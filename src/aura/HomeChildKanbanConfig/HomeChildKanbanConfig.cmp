@@ -108,11 +108,11 @@
                 </div>
 
                 <div class="slds-m-top_x-small">
-                <c:custom_multiPickList value="{!v.cardFields}" aura:id="cardFields" placeholder="Object Fields" label="Fields To Display In Kanban Card" required="true">
+                <c:customMultiPickList value="{!v.cardFields}" aura:id="cardFields" placeholder="Object Fields" label="Fields To Display In Kanban Card" required="true">
                     <aura:iteration items="{!v.allFieldsList.all}" var="objwrap">
                         <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                     </aura:iteration>
-                </c:custom_multiPickList>
+                </c:customMultiPickList>
                 </div>
 
                 <div class="slds-m-top_x-small">
@@ -124,11 +124,11 @@
                 </div>
 
                 <div class="slds-m-top_x-small">
-                    <c:custom_multiPickList value="{!v.pickExclVals}" aura:id="pickExclVals" placeholder="Plickist Values To Be Excluded" label="Exclude Values From Group By">
+                    <c:customMultiPickList value="{!v.pickExclVals}" aura:id="pickExclVals" placeholder="Plickist Values To Be Excluded" label="Exclude Values From Group By">
                         <aura:iteration items="{!v.allPickValList}" var="objwrap">
                             <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:custom_multiPickList>
+                    </c:customMultiPickList>
                 </div>
 
             </div>
