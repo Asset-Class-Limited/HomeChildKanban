@@ -32,7 +32,7 @@
             helper.errorHelper(component, 'ObjectName', null, false);
         }
         if(helper.iUorN(cardFields)){
-            helper.errorHelper(component, 'cardFields', 'Please select atleast one field to show on the kanban tile', true);
+            helper.errorHelper(component, 'cardFields', 'Please select at least one field to show on the kanban tile', true);
         	isFormValid = false;
         }else{
             helper.errorHelper(component, 'cardFields', null, false);
@@ -90,7 +90,7 @@
                     if(rVal == 'true'){
                         toastEvent.setParams({
                             "title": "Success!",
-                            "message": "The confuguration has been saved successfully.",
+                            "message": "The configuration has been saved successfully.",
                             "type" : "success"
                         });
                         var homeEvent = $A.get("e.force:navigateToObjectHome");
@@ -101,7 +101,7 @@
                     }else{
                         toastEvent.setParams({
                             "title": "Error!",
-                            "message": "There was an error while saving the confuguration.",
+                            "message": "There was an error while saving the configuration.",
                             "type" : "error"
                         });
                     }
@@ -109,7 +109,7 @@
                 }else{
                     toastEvent.setParams({
                             "title": "Error!",
-                            "message": "There was an error while saving the confuguration.",
+                            "message": "There was an error while saving the configuration.",
                             "type" : "error"
                         });
                     //console.log(res.getError());
@@ -134,7 +134,7 @@
             el.hideError();
         }
     },
-    getFields : function(component, event, helper, val){
+    getFields : function(component, _event, _helper, val){
         var action = component.get('c.getObjFlds');
         action.setParams({
             'objName' : val
