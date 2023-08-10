@@ -10,7 +10,7 @@
     doInit : function(component, _event, _helper) {
         var lst = [];
         var rec = component.get('v.rec');
-        var picklistVal = component.get('v.pval');
+        var picklistVal = component.get('v.pVal');
         var fieldList = component.get('v.fieldList').split(';');
         var fieldMap = component.get('v.fieldTypeMap');
         for(var i=0; i<fieldList.length; i++){
@@ -69,7 +69,7 @@
             editRecordEvent.fire();
         }else if(label == "Delete"){
             var dObj = {};
-            dObj.from = component.get('v.rec')[component.get('v.pval')];
+            dObj.from = component.get('v.rec')[component.get('v.pVal')];
             dObj.pos = parseInt(component.get('v.recPos'));
             var kcevt = component.getEvent('kanbanChildDelReq');
             kcevt.setParams({

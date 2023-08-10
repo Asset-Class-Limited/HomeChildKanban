@@ -11,7 +11,7 @@
     <aura:attribute name="rec" type="object"/>
     <aura:attribute name="dList" type="list"/>
     <aura:attribute name="fieldList" type="list"/>
-    <aura:attribute name="pval" type="string"/>
+    <aura:attribute name="pVal" type="string"/>
     <aura:attribute name="recPos" type="string"/>
 
     <aura:attribute name="firstTimeRendered" type="boolean" default="false"/>

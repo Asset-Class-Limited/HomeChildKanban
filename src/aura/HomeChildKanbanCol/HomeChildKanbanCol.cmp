@@ -46,7 +46,7 @@
 
             <aura:iteration var="objRecord" items="{!v.recs}" indexVar="recPos">
                 <li class="{!v.fieldEditable == true ? 'slds-item slds-m-around_small isEditable' : 'slds-item slds-m-around_small'}" draggable="{!v.fieldEditable}" ondragstart="{!c.drag}" id="{!objRecord}" value="{!recPos}">
-                    <c:HomeChildKanbanCrd firstTimeRendered="{!v.firstTimeRendered}" rec="{!objRecord}" pval="{!v.kanbanField}" fieldList="{!v.fldList}" recPos="{!recPos}" fieldEditable="{!v.fieldEditable}" objDeletable="{!v.objDeletable}" fieldTypeMap="{!v.fieldTypeMap}" aura:id="recCards"/>
+                    <c:HomeChildKanbanCrd firstTimeRendered="{!v.firstTimeRendered}" rec="{!objRecord}" pVal="{!v.kanbanField}" fieldList="{!v.fldList}" recPos="{!recPos}" fieldEditable="{!v.fieldEditable}" objDeletable="{!v.objDeletable}" fieldTypeMap="{!v.fieldTypeMap}" aura:id="recCards"/>
                 </li>
             </aura:iteration>
         </ul>
