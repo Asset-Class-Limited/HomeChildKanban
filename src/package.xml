@@ -23,7 +23,7 @@
         <members>HomeChildKanbanCol</members>
         <members>HomeChildKanbanConfig</members>
         <members>HomeChildKanbanCrd</members>
-        <members>HomeChildKanbanDeleteEvt</members>
+        <members>HomeChildKanbanDeleteEvent</members>
         <members>HomeChildKanbanEvent</members>
         <members>CustomEvent</members>
         <members>CustomEventNotifyParent</members>

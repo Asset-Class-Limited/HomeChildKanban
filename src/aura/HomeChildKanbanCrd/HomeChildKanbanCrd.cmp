@@ -23,7 +23,7 @@
 
     <aura:attribute name="namePos" type="Integer"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:registerEvent name="kanbanChildDelReq" type="c:HomeChildKanbanDeleteEvt"/>
+    <aura:registerEvent name="kanbanChildDelReq" type="c:HomeChildKanbanDeleteEvent"/>
 
     <article class="slds-tile slds-tile_board" aura:id="newCard">
 
