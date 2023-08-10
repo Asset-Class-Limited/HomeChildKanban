@@ -30,7 +30,7 @@
         <members>CustomMultiPickList</members>
         <members>CustomOption</members>
         <members>CustomOptionGroup</members>
-        <members>customPill</members>
+        <members>CustomPill</members>
         <members>customSelect</members>
         <members>defaultTokens</members>
         <name>AuraDefinitionBundle</name>
