@@ -49,7 +49,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Kanban_For__c</field>
+                <field>KanbanFor__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

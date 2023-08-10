@@ -73,7 +73,7 @@
             }else{
                 sObj.kanbanDev__ChildObject__c = ObjectName;
             }
-            sObj.kanbanDev__Kanban_For__c = kf;
+            sObj.kanbanDev__KanbanFor__c = kf;
             sObj.kanbanDev__Summarize_By__c = sumFldName;
             sObj.kanbanDev__GroupBy__c = grpFldName;
             sObj.kanbanDev__FieldsToShow__c = cardFields;

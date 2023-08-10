@@ -45,7 +45,7 @@
         <members>KanbanConfiguration__c.FieldsToShow__c</members>
         <members>KanbanConfiguration__c.ForObject__c</members>
         <members>KanbanConfiguration__c.GroupBy__c</members>
-        <members>KanbanConfiguration__c.Kanban_For__c</members>
+        <members>KanbanConfiguration__c.KanbanFor__c</members>
         <members>KanbanConfiguration__c.Name_Field__c</members>
         <members>KanbanConfiguration__c.Relation_Field__c</members>
         <members>KanbanConfiguration__c.Summarize_By__c</members>
