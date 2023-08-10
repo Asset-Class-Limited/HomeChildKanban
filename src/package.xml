@@ -30,7 +30,7 @@
         <members>custom_evt_notifyParent</members>
         <members>custom_multiPickList</members>
         <members>custom_option</members>
-        <members>custom_optionGroup</members>
+        <members>customOptionGroup</members>
         <members>customPill</members>
         <members>custom_select</members>
         <members>defaultTokens</members>

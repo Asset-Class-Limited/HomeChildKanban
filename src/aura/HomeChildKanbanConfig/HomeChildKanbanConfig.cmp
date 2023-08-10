@@ -65,17 +65,17 @@
 
                 <c:custom_select value="{!v.ObjectName}" aura:id="ObjectName" label="Select an object" placeholder="Search Objects" errorMessage="Invalid input" required="true" searchable="true">
 
-                    <c:custom_optionGroup label="Standard Objects">
+                    <c:customOptionGroup label="Standard Objects">
                         <aura:iteration items="{!v.objectList.standard}" var="objwrap">
                             <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:custom_optionGroup>
+                    </c:customOptionGroup>
 
-                    <c:custom_optionGroup label="Custom Objects">
+                    <c:customOptionGroup label="Custom Objects">
                         <aura:iteration items="{!v.objectList.custom}" var="objwrap">
                             <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:custom_optionGroup>
+                    </c:customOptionGroup>
 
                 </c:custom_select>
 
@@ -83,17 +83,17 @@
 
                     <c:custom_select value="{!v.childObjectName}" aura:id="childObjectName" label="Select A Child Object" placeholder="Search Child Object" errorMessage="Invalid input" required="true" searchable="true">
 
-                        <c:custom_optionGroup label="Standard Objects">
+                        <c:customOptionGroup label="Standard Objects">
                             <aura:iteration items="{!v.childObjectList.standard}" var="objwrap">
                                 <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                             </aura:iteration>
-                        </c:custom_optionGroup>
+                        </c:customOptionGroup>
 
-                        <c:custom_optionGroup label="Custom Objects">
+                        <c:customOptionGroup label="Custom Objects">
                             <aura:iteration items="{!v.childObjectList.custom}" var="objwrap">
                                 <c:custom_option label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                             </aura:iteration>
-                        </c:custom_optionGroup>
+                        </c:customOptionGroup>
 
                     </c:custom_select>
 
