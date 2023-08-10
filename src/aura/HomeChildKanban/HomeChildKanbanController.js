@@ -10,7 +10,7 @@
     handleRecordUpdated : function(component, event, helper){
         var currentRec = component.get('v.record');
         if(!$A.util.isUndefinedOrNull(currentRec)){
-            var recFlds = currentRec.fields;
+            var recFields = currentRec.fields;
             var evtSrc = event.getSource();
             if(evtSrc.getLocalId() == 'refreshButton'){
                 helper.spinnerHelper(component, true);
@@ -22,20 +22,20 @@
                 }), 400);
             }
             var recId = component.get('v.recordId');
-            var objName = recFlds.kanbanDev__ChildObject__c.value;
-            var objRelField = recFlds.kanbanDev__RelationField__c.value;
-            var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
-            var kanbanPicklistField = recFlds.kanbanDev__GroupBy__c.value;
-            var excVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
-            var KbObjNameField = recFlds.kanbanDev__NameField__c.value;
+            var objName = recFields.kanbanDev__ChildObject__c.value;
+            var objRelField = recFields.kanbanDev__RelationField__c.value;
+            var objFields = recFields.kanbanDev__FieldsToShow__c.value;
+            var kanbanPicklistField = recFields.kanbanDev__GroupBy__c.value;
+            var excVal = recFields.kanbanDev__ExcludeFromGroupBy__c.value;
+            var KbObjNameField = recFields.kanbanDev__NameField__c.value;
             var ExcFVal = excVal ? excVal.split(';') : '';
             if(ExcFVal != ''){
                 for(var i=0; i<ExcFVal.length; i++){
                     ExcFVal[i] = ExcFVal[i].trim();
                 }
             }
-            var agrFld = recFlds.kanbanDev__SummarizeBy__c.value;
-            var agrFldVal = agrFld ? agrFld : null;
+            var agrField = recFields.kanbanDev__SummarizeBy__c.value;
+            var agrFieldVal = agrField ? agrField : null;
 
             if(objName && objFields && kanbanPicklistField){
                 //alert(recId + objName + objRelField + objFields + kanbanPicklistField);
@@ -44,7 +44,7 @@
                     'objName' : objName,
                     'objFields' : objFields.split(';'),
                     'kanbanField' : kanbanPicklistField,
-                    'summField' : agrFldVal,
+                    'summarizeField' : agrFieldVal,
                     'ParentRecId' : recId,
                     'relField' : objRelField,
                     'excVal' : ExcFVal,
@@ -76,7 +76,7 @@
         }
     },
     childChanged : function(component, event, _helper) {
-        var recFlds = component.get('v.record').fields;
+        var recFields = component.get('v.record').fields;
         var data = event.getParam('KanbanChildChange');
         if(data.from != data.to){
             var recsMap = component.get('v.kanbanWrap');
@@ -92,17 +92,17 @@
             } else {
                 nameInToast = component.get('v.kanbanWrap').cObjName;
             }
-            var kfld = recFlds.kanbanDev__GroupBy__c.value;
-            var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
+            var kField = recFields.kanbanDev__GroupBy__c.value;
+            var sField = recFields.kanbanDev__SummarizeBy__c.value;
 
-            if(rec[sfield] && !isNaN(rec[sfield])){
+            if(rec[sField] && !isNaN(rec[sField])){
                 var sMap = recsMap.rollupData;
-                sMap[data.from] = sMap[data.from] - rec[sfield];
-                sMap[data.to] = sMap[data.to] + rec[sfield];
+                sMap[data.from] = sMap[data.from] - rec[sField];
+                sMap[data.to] = sMap[data.to] + rec[sField];
                 recsMap.rollupData = sMap;
             }
 
-            rec[kfld] = data.to;
+            rec[kField] = data.to;
             recsMap.records[data.to].unshift(rec);
             recsMap.records[data.from].splice(data.pos, 1);
 
@@ -111,7 +111,7 @@
             var action = component.get('c.updateRec');
             action.setParams({
                 'recId' : rec.Id,
-                'recField' : kfld,
+                'recField' : kField,
                 'recVal' : data.to
             });
             action.setCallback(this, function(res){
@@ -145,7 +145,7 @@
                     });
                     toastEvent.fire();
                     var rec = recsMap.records[data.to][0];
-                    rec[kfld] = data.from;
+                    rec[kField] = data.from;
                     recsMap.records[data.to].splice(0, 1);
                     recsMap.records[data.from].splice(data.pos, 0, rec);
                     component.set('v.kanbanWrap',recsMap);
@@ -160,7 +160,7 @@
         helper.modalHelper(component, 'srModal', 'modalBkdrp', true);
     },
     deleteRecord : function(component, _event, helper) {
-        var recFlds = component.get('v.record').fields;
+        var recFields = component.get('v.record').fields;
         helper.modalHelper(component, 'srModal', 'modalBkdrp', false);
         helper.spinnerHelper(component, true);
         var data = component.get('v.delInfo');
@@ -169,7 +169,7 @@
         var rec = recsMap.records[data.from][data.pos];
         console.log(rec);
         var action = component.get('c.deleteRec');
-        var sfield = recFlds.kanbanDev__SummarizeBy__c.value;
+        var sField = recFields.kanbanDev__SummarizeBy__c.value;
         action.setParams({
             'obj' : rec
         });
@@ -180,9 +180,9 @@
             if(state === 'SUCCESS'){
                 recsMap.records[data.from].splice(data.pos, 1);
 
-                if(rec[sfield] && !isNaN(rec[sfield])){
+                if(rec[sField] && !isNaN(rec[sField])){
                     var sMap = recsMap.rollupData;
-                    sMap[data.from] = sMap[data.from] - rec[sfield];
+                    sMap[data.from] = sMap[data.from] - rec[sField];
                     recsMap.rollupData = sMap;
                 }
                 toastEvent.setParams({

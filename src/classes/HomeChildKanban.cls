@@ -79,9 +79,9 @@ public with sharing class HomeChildKanban {
         List<HomeChildKanbanObjUtil> gList = new List<HomeChildKanbanObjUtil>();
         List<HomeChildKanbanObjUtil> sList = new List<HomeChildKanbanObjUtil>();
 
-        for(Schema.SObjectField sfield : fieldMap.Values())
+        for(Schema.SObjectField sField : fieldMap.Values())
         {
-            schema.describefieldresult dfield = sfield.getDescribe();
+            schema.describefieldresult dfield = sField.getDescribe();
             if(dfield.isAccessible() && dfield.isDeprecatedAndHidden() != true){
                 string fldType = string.valueOf(dfield.getType());
                 HomeChildKanbanObjUtil hcu = new HomeChildKanbanObjUtil(dfield.getName(), dfield.getLabel());
@@ -113,10 +113,10 @@ public with sharing class HomeChildKanban {
     }
 
     @AuraEnabled
-    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kanbanField, String ParentRecId, String relField, List<string> excVal, String summField, String KbObjNameField){
+    public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kanbanField, String ParentRecId, String relField, List<string> excVal, String summarizeField, String KbObjNameField){
         //system.debug(objFields);
-        if(summField != null){
-            objFields.add(summField);
+        if(summarizeField != null){
+            objFields.add(summarizeField);
         }
         if(KbObjNameField != null && KbObjNameField != 'false'){
             if(Schema.getGlobalDescribe().get(objName).getDescribe().fields.getMap().get(KbObjNameField) != null){
@@ -128,27 +128,27 @@ public with sharing class HomeChildKanban {
         obFields.remove('Id');
         /*Checks if all the requested fields are accessible*/
         if(HomeChildKanbanUtil.checkAccessibleFLS(obFields, objName)){
-            Set<string> kfldCheck = new Set<string>();
-            kfldCheck.add(kanbanField);
+            Set<string> kFieldCheck = new Set<string>();
+            kFieldCheck.add(kanbanField);
             /*Checks if the Group By Field is Updatable*/
-            if(HomeChildKanbanUtil.checkAccessibleFLS(kfldCheck, objName)){
-                boolean ispdatable = HomeChildKanbanUtil.checkUpdateableFLS(kfldCheck, objName);
+            if(HomeChildKanbanUtil.checkAccessibleFLS(kFieldCheck, objName)){
+                boolean ispdatable = HomeChildKanbanUtil.checkUpdateableFLS(kFieldCheck, objName);
                 try{
                     Schema.DescribeSObjectResult actdsc = Schema.getGlobalDescribe().get(objName).getDescribe();
                     Map<String, Schema.SObjectField> allFieldMap = actdsc.fields.getMap();
-                    string agrFldName = null;
+                    string agrFieldName = null;
                     string sFldIsCurrency = null;
                     Map<string, decimal> aggQMap;
                     List<AggregateResult> sumQuery;
-                    if(summField != null){
-                        Schema.DescribeFieldResult ads = allFieldMap.get(summField).getDescribe();
+                    if(summarizeField != null){
+                        Schema.DescribeFieldResult ads = allFieldMap.get(summarizeField).getDescribe();
                         string aftype = string.valueOf(ads.getType());
                         if(aftype == 'Double' || aftype == 'Integer' || aftype == 'Currency'){
-                            agrFldName = ads.getLabel();
+                            agrFieldName = ads.getLabel();
                             sFldIsCurrency = aftype;
                             aggQMap = new Map<string, decimal>();
                         } else {
-                            return new HomeChildKanbanUtil(null, null, false, 'The field '+summField+' cannot be summarized.', null, null, null, null, null, null, null, null, null);
+                            return new HomeChildKanbanUtil(null, null, false, 'The field '+summarizeField+' cannot be summarized.', null, null, null, null, null, null, null, null, null);
                         }
                     }
 
@@ -160,7 +160,7 @@ public with sharing class HomeChildKanban {
                         if(!excVals.contains(s.getValue()) && s.isActive()){
                             Pickvalslst.add(s.getValue());
                             recMaps.put(s.getValue(), new List<sobject>());
-                            if(summField != null){
+                            if(summarizeField != null){
                                 aggQMap.put(s.getValue(), 0);
                             }
                         }
@@ -222,15 +222,15 @@ public with sharing class HomeChildKanban {
 
                     for(sobject s: database.query(qry)){
                         recMaps.get(string.valueOf(s.get(kanbanField))).add(s);
-                        if(summField != null){
-                            decimal sVal = (Decimal)s.get(summField);
+                        if(summarizeField != null){
+                            decimal sVal = (Decimal)s.get(summarizeField);
                             if(sVal != null){
-                                aggQMap.put(string.valueOf(s.get(kanbanField)), (Decimal)s.get(summField) + (Decimal)aggQMap.get(string.valueOf(s.get(kanbanField))) );
+                                aggQMap.put(string.valueOf(s.get(kanbanField)), (Decimal)s.get(summarizeField) + (Decimal)aggQMap.get(string.valueOf(s.get(kanbanField))) );
                             }
                         }
                     }
                     //system.debug(recMaps);
-                    return new HomeChildKanbanUtil(recMaps, Pickvalslst, true, null, gFldName, cObName, agrFldName, sFldIsCurrency, aggQMap, gFldEditable, isObjDeletable, fieldTypeMap, isObjectCreateable);
+                    return new HomeChildKanbanUtil(recMaps, Pickvalslst, true, null, gFldName, cObName, agrFieldName, sFldIsCurrency, aggQMap, gFldEditable, isObjDeletable, fieldTypeMap, isObjectCreateable);
                 }catch (exception e){
                     return new HomeChildKanbanUtil(null, null, false, e.getMessage(), null, null, null, null, null, null, null, null, null);
                 }
