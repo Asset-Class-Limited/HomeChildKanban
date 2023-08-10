@@ -5,9 +5,9 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 public with sharing class HomeChildKanbanCls {
-    
+
     @AuraEnabled
-    public static string saveConfig(Kanban_Configuration__c obj){
+    public static string saveConfig(KanbanConfiguration__c obj){
         try{
             if(obj.kanbanDev__Kanban_For__c == 'Child'){
                 obj.kanbanDev__Name_Field__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__Child_Object__c);
@@ -20,16 +20,16 @@ public with sharing class HomeChildKanbanCls {
             return e.getMessage();
         }
     }
-    
+
     @AuraEnabled
     public static Map<string, List<HomeChildKanbanObjUtil>> getObjs(){
         Map<string, List<HomeChildKanbanObjUtil>> objmap = new Map<string, List<HomeChildKanbanObjUtil>>();
-        
+
         List<Schema.SObjectType> objs = Schema.getGlobalDescribe().values();
-        
+
         List<HomeChildKanbanObjUtil> sList = new List<HomeChildKanbanObjUtil>();
         List<HomeChildKanbanObjUtil> cList = new List<HomeChildKanbanObjUtil>();
-        
+
         for(Schema.SObjectType s : objs){
             Schema.DescribeSObjectResult ds = s.getDescribe();
             if(ds.isAccessible() && ds.isQueryable()){
@@ -43,10 +43,10 @@ public with sharing class HomeChildKanbanCls {
         }
         objmap.put('standard', sList);
         objmap.put('custom', cList);
-        
+
         return objmap;
     }
-    
+
     @AuraEnabled
     public static Map<string, List<HomeChildKanbanCObjUtil>> getObjChilds(string objName){
         Map<string, List<HomeChildKanbanCObjUtil>> objmap = new Map<string, List<HomeChildKanbanCObjUtil>>();
@@ -69,16 +69,16 @@ public with sharing class HomeChildKanbanCls {
         objmap.put('custom', cList);
         return objmap;
     }
-    
+
     @AuraEnabled
     public static Map<string, List<HomeChildKanbanObjUtil>> getObjFlds(string objName){
         Map<string, List<HomeChildKanbanObjUtil>> objFldmap = new Map<string, List<HomeChildKanbanObjUtil>>();
         Map <String, Schema.SObjectField> fieldMap = Schema.getGlobalDescribe().get(objName).getDescribe().fields.getMap();
-        
+
         List<HomeChildKanbanObjUtil> aList = new List<HomeChildKanbanObjUtil>();
         List<HomeChildKanbanObjUtil> gList = new List<HomeChildKanbanObjUtil>();
         List<HomeChildKanbanObjUtil> sList = new List<HomeChildKanbanObjUtil>();
-        
+
         for(Schema.SObjectField sfield : fieldMap.Values())
         {
             schema.describefieldresult dfield = sfield.getDescribe();
@@ -99,7 +99,7 @@ public with sharing class HomeChildKanbanCls {
         objFldmap.put('sumBy', sList);
         return objFldmap;
     }
-    
+
     @AuraEnabled
     public static List<HomeChildKanbanObjUtil> getPickVals(String FldName, String objName){
         List<HomeChildKanbanObjUtil> plist = new List<HomeChildKanbanObjUtil>();
@@ -108,10 +108,10 @@ public with sharing class HomeChildKanbanCls {
         for( Schema.PicklistEntry f : ple)
         {
             plist.add(new HomeChildKanbanObjUtil(f.getLabel(), f.getValue()));
-        }       	
+        }
         return plist;
     }
-    
+
     @AuraEnabled
     public static HomeChildKanbanUtil getKanban(String objName, List<String> objFields, String kabnanField, String ParentRecId, String relField, List<string> ExcVal, String summField, String KbObjNameField){
         //system.debug(objFields);
@@ -146,36 +146,36 @@ public with sharing class HomeChildKanbanCls {
                         if(aftype == 'Double' || aftype == 'Integer' || aftype == 'Currency'){
                             agrFldName = ads.getLabel();
                             sFldIsCurrency = aftype;
-                            aggQMap = new Map<string, decimal>(); 
+                            aggQMap = new Map<string, decimal>();
                         }else{
-                            return new HomeChildKanbanUtil(null, null, false, 'The field '+summField+' cannot be summarized.', null, null, null, null, null, null, null, null, null);   
-                        }  
+                            return new HomeChildKanbanUtil(null, null, false, 'The field '+summField+' cannot be summarized.', null, null, null, null, null, null, null, null, null);
+                        }
                     }
-                    
+
                     List<string> Pickvalslst = new List<String>();
                     Set<string> ExcVals = new Set<string>(ExcVal);
                     Map<string, list<sobject>> recMaps = new Map<string, list<sobject>>();
-                    
+
                     for(Schema.PicklistEntry s: allFieldMap.get(kabnanField).getDescribe().getpicklistValues()){
                         if(!ExcVals.contains(s.getValue()) && s.isActive()){
                             Pickvalslst.add(s.getValue());
                             recMaps.put(s.getValue(), new List<sobject>());
                             if(summField != null){
-                                aggQMap.put(s.getValue(), 0);    
+                                aggQMap.put(s.getValue(), 0);
                             }
                         }
                     }
-                    
+
                     string cObName = actdsc.getLabel();
                     Schema.DescribeFieldResult utilResult = allFieldMap.get(kabnanField).getDescribe();
                     string gFldName = utilResult.getLabel();
                     boolean gFldEditable = utilResult.isUpdateable();
                     boolean isObjDeletable = actdsc.isDeletable();
                     boolean isObjectCreateable = actdsc.isCreateable();
-                    
+
                     //For Getting a Map of field name and its type
                     Map<String, Map<String, String>> fieldTypeMap = new Map<String, Map<String, String>>();
-                 
+
                     String qry = 'Select Id, ';
                     for(String s: obFields){
                         Schema.DescribeFieldResult currentFieldResult = allFieldMap.get(s).getDescribe();
@@ -211,21 +211,21 @@ public with sharing class HomeChildKanbanCls {
                         fieldTypeMap.put(s, currentMap);
                     }
                     qry = qry.removeEnd(',');
-                    
+
                     qry += ' From '+objName+' where '+kabnanField+' in :Pickvalslst';
-                    
+
                     if(ParentRecId != '' && ParentRecId != null && relField != '' && relField != null){
                         qry += ' and '+relField+'=\''+ParentRecId+'\'';
                     }
-                    
-                    //system.debug('genquery '+ qry);   
-                    
+
+                    //system.debug('genquery '+ qry);
+
                     for(sobject s: database.query(qry)){
                         recMaps.get(string.valueOf(s.get(kabnanField))).add(s);
                         if(summField != null){
                             decimal sVal = (Decimal)s.get(summField);
                             if(sVal != null){
-                                aggQMap.put(string.valueOf(s.get(kabnanField)), (Decimal)s.get(summField) + (Decimal)aggQMap.get(string.valueOf(s.get(kabnanField))) );       
+                                aggQMap.put(string.valueOf(s.get(kabnanField)), (Decimal)s.get(summField) + (Decimal)aggQMap.get(string.valueOf(s.get(kabnanField))) );
                             }
                         }
                     }
@@ -235,14 +235,14 @@ public with sharing class HomeChildKanbanCls {
                     return new HomeChildKanbanUtil(null, null, false, e.getMessage(), null, null, null, null, null, null, null, null, null);
                 }
             }else{
-                return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the specified Group By field. Please contact your administrator.', null, null, null, null, null, null, null, null, null);   
+                return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the specified Group By field. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
             }
         }else{
-            return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the requested fields. Please contact your administrator.', null, null, null, null, null, null, null, null, null);   
+            return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the requested fields. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
         }
-        
+
     }
-    
+
     @AuraEnabled
     public static string updateRec(string recId, string recField, string recVal){
         try{
@@ -258,13 +258,13 @@ public with sharing class HomeChildKanbanCls {
             }else{
                 return 'You do not have update access to object. Please contact your administrator.';
             }
-            
+
         }
         catch(exception e){
             return e.getMessage();
         }
     }
-    
+
     @AuraEnabled
     public static string deleteRec(sobject obj){
         Schema.DescribeSObjectResult sObjRes = Id.valueOf(obj.Id).getSObjectType().getDescribe();
@@ -279,6 +279,6 @@ public with sharing class HomeChildKanbanCls {
             return 'You do not have permissions to delete the record. Please contact your administrator.';
         }
     }
-    
-    
+
+
 }

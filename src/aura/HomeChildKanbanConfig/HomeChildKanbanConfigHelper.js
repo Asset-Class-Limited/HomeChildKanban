@@ -64,7 +64,7 @@
             if(recId){
                 sObj.Id = recId;
             }
-            sObj.sobjectType = 'kanbanDev__Kanban_Configuration__c';
+            sObj.sobjectType = 'kanbanDev__KanbanConfiguration__c';
             sObj.Name = configName;
             sObj.kanbanDev__For_Object__c = ObjectName;
             if(kf != 'Home'){
@@ -84,7 +84,7 @@
             });
             var toastEvent = $A.get("e.force:showToast");
             action.setCallback(this, function(res){
-                var state = res.getState();                
+                var state = res.getState();
                 if(state === 'SUCCESS'){
                     var rVal = res.getReturnValue();
                     if(rVal == 'true'){
@@ -95,7 +95,7 @@
                         });
                         var homeEvent = $A.get("e.force:navigateToObjectHome");
                             homeEvent.setParams({
-                                "scope": "kanbanDev__Kanban_Configuration__c"
+                                "scope": "kanbanDev__KanbanConfiguration__c"
                             });
                         homeEvent.fire();
                     }else{

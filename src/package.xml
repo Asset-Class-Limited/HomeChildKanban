@@ -38,39 +38,39 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>Kanban_Configuration</members>
+        <members>KanbanConfiguration</members>
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>Kanban_Configuration__c.Child_Object__c</members>
-        <members>Kanban_Configuration__c.Exclude_From_Group_By__c</members>
-        <members>Kanban_Configuration__c.Fields_To_Show__c</members>
-        <members>Kanban_Configuration__c.For_Object__c</members>
-        <members>Kanban_Configuration__c.Group_By__c</members>
-        <members>Kanban_Configuration__c.Kanban_For__c</members>
-        <members>Kanban_Configuration__c.Name_Field__c</members>
-        <members>Kanban_Configuration__c.Relation_Field__c</members>
-        <members>Kanban_Configuration__c.Summarize_By__c</members>
+        <members>KanbanConfiguration__c.Child_Object__c</members>
+        <members>KanbanConfiguration__c.Exclude_From_Group_By__c</members>
+        <members>KanbanConfiguration__c.Fields_To_Show__c</members>
+        <members>KanbanConfiguration__c.For_Object__c</members>
+        <members>KanbanConfiguration__c.Group_By__c</members>
+        <members>KanbanConfiguration__c.Kanban_For__c</members>
+        <members>KanbanConfiguration__c.Name_Field__c</members>
+        <members>KanbanConfiguration__c.Relation_Field__c</members>
+        <members>KanbanConfiguration__c.Summarize_By__c</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Kanban_Configuration__c</members>
+        <members>KanbanConfiguration__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Kanban_Configuration__c</members>
+        <members>KanbanConfiguration__c</members>
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Kanban_Configuration_UtilityBar</members>
+        <members>KanbanConfiguration_UtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>Kanban_Configuration__c-Kanban Configuration Layout</members>
+        <members>KanbanConfiguration__c-Kanban Configuration Layout</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>Kanban_Configuration__c.All</members>
+        <members>KanbanConfiguration__c.All</members>
         <name>ListView</name>
     </types>
     <types>

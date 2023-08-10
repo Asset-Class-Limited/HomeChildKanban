@@ -6,7 +6,7 @@
  */
 @isTest
 public class HomeChildKanbanCls_Test {
-    
+
     public static testmethod void tm1(){
         account a = new account(Name = 'name');
         insert a;
@@ -24,14 +24,14 @@ public class HomeChildKanbanCls_Test {
         lStrings.add('Closed Lost');
         HomeChildKanbanUtil wrp = HomeChildKanbanCls.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Amount', 'Name');
         HomeChildKanbanCls.getKanban('opportunity', lString, 'stagename', string.valueOf(a.id), 'AccountId', lStrings, 'Name', 'Name');
-        HomeChildKanbanCls.getKanban('opportunity', lString, 'stagenam', string.valueOf(a.id), 'AccountId', null, null, 'Name');        
+        HomeChildKanbanCls.getKanban('opportunity', lString, 'stagenam', string.valueOf(a.id), 'AccountId', null, null, 'Name');
         HomeChildKanbanCls.getObjs();
         HomeChildKanbanCls.getObjChilds('Account');
         HomeChildKanbanCls.getObjFlds('Account');
         HomeChildKanbanCls.getPickVals('Industry','Account');
         system.assertEquals(wrp.isSuccess, true);
-    }    
-    
+    }
+
     public static testmethod void tm2(){
         account a = new account(Name = 'name');
         insert a;
@@ -46,7 +46,7 @@ public class HomeChildKanbanCls_Test {
         HomeChildKanbanCls.updateRec(string.valueOf(o.id)+'a', 'stagenam', 'Qualificatio1');
         system.assertEquals(act, 'true');
     }
-    
+
     public static testmethod void tm3(){
         account a = new account(Name = 'name');
         insert a;
@@ -60,20 +60,20 @@ public class HomeChildKanbanCls_Test {
         HomeChildKanbanCls.deleteRec(o);
         system.assertEquals(null, null);
     }
-    
+
     public static testmethod void tm4(){
-        Kanban_Configuration__c k = new Kanban_Configuration__c(Name='Test');
+        KanbanConfiguration__c k = new KanbanConfiguration__c(Name='Test');
         string res = HomeChildKanbanCls.saveConfig(k);
         system.assertEquals(res, 'true');
     }
-    
+
     public static testmethod void tm5(){
-        Kanban_Configuration__c k = new Kanban_Configuration__c(Name='Test');
+        KanbanConfiguration__c k = new KanbanConfiguration__c(Name='Test');
         insert k;
         KanbanConfigList ka = new KanbanConfigList();
         ka.getDefaultValue();
         ka.getValues();
         system.assertEquals(null, null);
     }
-    
+
 }

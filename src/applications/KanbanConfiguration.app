@@ -17,7 +17,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Kanban Configuration</label>
     <navType>Standard</navType>
-    <tabs>Kanban_Configuration__c</tabs>
+    <tabs>KanbanConfiguration__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Kanban_Configuration_UtilityBar</utilityBar>
+    <utilityBar>KanbanConfiguration_UtilityBar</utilityBar>
 </CustomApplication>
