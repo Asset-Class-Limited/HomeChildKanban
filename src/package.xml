@@ -24,7 +24,7 @@
         <members>HomeChildKanbanConfig</members>
         <members>HomeChildKanbanCrd</members>
         <members>HomeChildKanbanDeleteEvt</members>
-        <members>HomeChildKanbanEvt</members>
+        <members>HomeChildKanbanEvent</members>
         <members>CustomEvent</members>
         <members>CustomEventNotifyParent</members>
         <members>CustomMultiPickList</members>

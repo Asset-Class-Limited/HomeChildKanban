@@ -25,7 +25,7 @@
     <aura:attribute name="errorMessage" type="String"/>
 
     <!--<aura:handler name="init" value="this" action="{!c.doInit}"/>-->
-    <aura:handler name="kanbanChildChanged" event="c:HomeChildKanbanEvt" action="{!c.childChanged}"/>
+    <aura:handler name="kanbanChildChanged" event="c:HomeChildKanbanEvent" action="{!c.childChanged}"/>
     <aura:handler name="kanbanChildDelReq" event="c:HomeChildKanbanDeleteEvt" action="{!c.childDelete}"/>
 
  	<!--{!v.kanbanConfigId.value}
