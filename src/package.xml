@@ -41,7 +41,7 @@
     </types>
     <types>
         <members>KanbanConfiguration__c.ChildObject__c</members>
-        <members>KanbanConfiguration__c.Exclude_From_Group_By__c</members>
+        <members>KanbanConfiguration__c.ExcludeFromGroupBy__c</members>
         <members>KanbanConfiguration__c.Fields_To_Show__c</members>
         <members>KanbanConfiguration__c.For_Object__c</members>
         <members>KanbanConfiguration__c.Group_By__c</members>

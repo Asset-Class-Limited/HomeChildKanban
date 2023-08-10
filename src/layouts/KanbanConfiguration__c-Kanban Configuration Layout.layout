@@ -41,7 +41,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Exclude_From_Group_By__c</field>
+                <field>ExcludeFromGroupBy__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

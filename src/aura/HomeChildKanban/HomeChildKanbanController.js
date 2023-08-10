@@ -26,7 +26,7 @@
             var objRelField = recFlds.kanbanDev__Relation_Field__c.value;
             var objFields = recFlds.kanbanDev__Fields_To_Show__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__Group_By__c.value;
-            var ExcVal = recFlds.kanbanDev__Exclude_From_Group_By__c.value;
+            var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
             var KbObjNameField = recFlds.kanbanDev__Name_Field__c.value;
             var ExcFVal = ExcVal ? ExcVal.split(';') : '';
             if(ExcFVal != ''){

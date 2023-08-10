@@ -77,7 +77,7 @@
             sObj.kanbanDev__Summarize_By__c = sumFldName;
             sObj.kanbanDev__Group_By__c = grpFldName;
             sObj.kanbanDev__Fields_To_Show__c = cardFields;
-            sObj.kanbanDev__Exclude_From_Group_By__c = pickExclVals;
+            sObj.kanbanDev__ExcludeFromGroupBy__c = pickExclVals;
             var action = component.get('c.saveConfig');
             action.setParams({
                 'obj': sObj
