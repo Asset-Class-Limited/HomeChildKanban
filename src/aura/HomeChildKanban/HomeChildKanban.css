@@ -34,15 +34,3 @@
 .THIS .refreshSpin svg{
     -webkit-animation: rotate .4s;
 }
-/*
-.THIS .boardHeaderTitle{
-	font-weight: 700;
-}
-.THIS .boardHeaderTitle:hover{
-    text-decoration: underline;
-    color: #0070d2;
-}
-.THIS .cPointer{
-    cursor:pointer;
-}
-*/

@@ -7,7 +7,7 @@
  */
 -->
 <aura:component controller="HomeChildKanban" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
-    <aura:attribute name="HeaderTitle" type="string" access='global'/>
+    <aura:attribute name="headerTitle" type="string" access='global'/>
     <aura:attribute name="objName" type="string"/>
     <aura:attribute name="objRelField" type="string"/>
     <aura:attribute name="objFields" type="string" default="Name"/>
@@ -57,8 +57,8 @@
             <aura:set attribute="title">
                 <!--class="{!not(empty(v.recordId)) ? 'boardHeaderTitle cPointer slds-truncate' : 'slds-truncate'}"-->
                 <span class="slds-truncate">
-                <aura:if isTrue="{!not(empty(v.HeaderTitle))}">
-                    {!v.HeaderTitle}
+                <aura:if isTrue="{!not(empty(v.headerTitle))}">
+                    {!v.headerTitle}
                     <aura:set attribute="else">
                 		{!v.kwrap.cObjName + ' Kanban'}
                     </aura:set>
