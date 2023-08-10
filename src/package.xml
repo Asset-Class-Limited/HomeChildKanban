@@ -32,7 +32,6 @@
         <members>CustomOptionGroup</members>
         <members>CustomPill</members>
         <members>CustomSelect</members>
-        <members>defaultTokens</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
