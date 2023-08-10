@@ -65,17 +65,17 @@
 
                 <c:customSelect value="{!v.ObjectName}" aura:id="ObjectName" label="Select an object" placeholder="Search Objects" errorMessage="Invalid input" required="true" searchable="true">
 
-                    <c:customOptionGroup label="Standard Objects">
+                    <c:CustomOptionGroup label="Standard Objects">
                         <aura:iteration items="{!v.objectList.standard}" var="objwrap">
-                            <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                            <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:customOptionGroup>
+                    </c:CustomOptionGroup>
 
-                    <c:customOptionGroup label="Custom Objects">
+                    <c:CustomOptionGroup label="Custom Objects">
                         <aura:iteration items="{!v.objectList.custom}" var="objwrap">
-                            <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                            <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:customOptionGroup>
+                    </c:CustomOptionGroup>
 
                 </c:customSelect>
 
@@ -83,17 +83,17 @@
 
                     <c:customSelect value="{!v.childObjectName}" aura:id="childObjectName" label="Select A Child Object" placeholder="Search Child Object" errorMessage="Invalid input" required="true" searchable="true">
 
-                        <c:customOptionGroup label="Standard Objects">
+                        <c:CustomOptionGroup label="Standard Objects">
                             <aura:iteration items="{!v.childObjectList.standard}" var="objwrap">
-                                <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                                <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                             </aura:iteration>
-                        </c:customOptionGroup>
+                        </c:CustomOptionGroup>
 
-                        <c:customOptionGroup label="Custom Objects">
+                        <c:CustomOptionGroup label="Custom Objects">
                             <aura:iteration items="{!v.childObjectList.custom}" var="objwrap">
-                                <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                                <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                             </aura:iteration>
-                        </c:customOptionGroup>
+                        </c:CustomOptionGroup>
 
                     </c:customSelect>
 
@@ -102,7 +102,7 @@
                 <div class="slds-m-top_x-small">
                     <c:customSelect value="{!v.grpFldName}" aura:id="grpFldName" label="Group By" placeholder="Group By" errorMessage="Invalid input" required="true" searchable="true">
                         <aura:iteration items="{!v.allFieldsList.groupBy}" var="objwrap">
-                            <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                            <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
                     </c:customSelect>
                 </div>
@@ -110,7 +110,7 @@
                 <div class="slds-m-top_x-small">
                 <c:CustomMultiPickList value="{!v.cardFields}" aura:id="cardFields" placeholder="Object Fields" label="Fields To Display In Kanban Card" required="true">
                     <aura:iteration items="{!v.allFieldsList.all}" var="objwrap">
-                        <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                        <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                     </aura:iteration>
                 </c:CustomMultiPickList>
                 </div>
@@ -118,7 +118,7 @@
                 <div class="slds-m-top_x-small">
                 <c:customSelect value="{!v.sumFldName}" aura:id="sumFldName" label="Summarize By" placeholder="Summarize By" errorMessage="Invalid input" searchable="true">
                     <aura:iteration items="{!v.allFieldsList.sumBy}" var="objwrap">
-                        <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                        <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                     </aura:iteration>
                 </c:customSelect>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="slds-m-top_x-small">
                     <c:CustomMultiPickList value="{!v.pickExclVals}" aura:id="pickExclVals" placeholder="Plickist Values To Be Excluded" label="Exclude Values From Group By">
                         <aura:iteration items="{!v.allPickValList}" var="objwrap">
-                            <c:customOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
+                            <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
                     </c:CustomMultiPickList>
                 </div>

@@ -28,8 +28,8 @@
         <members>CustomEvent</members>
         <members>CustomEventNotifyParent</members>
         <members>CustomMultiPickList</members>
-        <members>customOption</members>
-        <members>customOptionGroup</members>
+        <members>CustomOption</members>
+        <members>CustomOptionGroup</members>
         <members>customPill</members>
         <members>customSelect</members>
         <members>defaultTokens</members>
