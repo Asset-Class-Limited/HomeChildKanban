@@ -27,7 +27,7 @@
         <members>HomeChildKanbanEvt</members>
         <members>RemoveValidations</members>
         <members>customEvent</members>
-        <members>custom_evt_notifyParent</members>
+        <members>customEventNotifyParent</members>
         <members>customMultiPickList</members>
         <members>custom_option</members>
         <members>customOptionGroup</members>
