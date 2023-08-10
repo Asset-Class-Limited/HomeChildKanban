@@ -12,7 +12,7 @@
     <types>
         <members>HomeChildKanbanCObjUtil</members>
         <members>HomeChildKanban</members>
-        <members>HomeChildKanban_Test</members>
+        <members>HomeChildKanbanTest</members>
         <members>HomeChildKanbanObjUtil</members>
         <members>HomeChildKanbanUtil</members>
         <members>KanbanConfigList</members>
