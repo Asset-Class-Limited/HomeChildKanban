@@ -32,7 +32,7 @@
         <members>custom_option</members>
         <members>customOptionGroup</members>
         <members>customPill</members>
-        <members>custom_select</members>
+        <members>customSelect</members>
         <members>defaultTokens</members>
         <members>sobjectselected</members>
         <name>AuraDefinitionBundle</name>
