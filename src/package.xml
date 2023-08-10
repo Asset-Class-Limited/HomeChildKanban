@@ -31,7 +31,7 @@
         <members>CustomOption</members>
         <members>CustomOptionGroup</members>
         <members>CustomPill</members>
-        <members>customSelect</members>
+        <members>CustomSelect</members>
         <members>defaultTokens</members>
         <name>AuraDefinitionBundle</name>
     </types>

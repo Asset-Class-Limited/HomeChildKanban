@@ -63,7 +63,7 @@
                     <option value="Child">Related List</option>
                 </lightning:select>
 
-                <c:customSelect value="{!v.ObjectName}" aura:id="ObjectName" label="Select an object" placeholder="Search Objects" errorMessage="Invalid input" required="true" searchable="true">
+                <c:CustomSelect value="{!v.ObjectName}" aura:id="ObjectName" label="Select an object" placeholder="Search Objects" errorMessage="Invalid input" required="true" searchable="true">
 
                     <c:CustomOptionGroup label="Standard Objects">
                         <aura:iteration items="{!v.objectList.standard}" var="objwrap">
@@ -77,11 +77,11 @@
                         </aura:iteration>
                     </c:CustomOptionGroup>
 
-                </c:customSelect>
+                </c:CustomSelect>
 
                 <div class="slds-hide" aura:id="forChild" style="margin-top:0.5rem">
 
-                    <c:customSelect value="{!v.childObjectName}" aura:id="childObjectName" label="Select A Child Object" placeholder="Search Child Object" errorMessage="Invalid input" required="true" searchable="true">
+                    <c:CustomSelect value="{!v.childObjectName}" aura:id="childObjectName" label="Select A Child Object" placeholder="Search Child Object" errorMessage="Invalid input" required="true" searchable="true">
 
                         <c:CustomOptionGroup label="Standard Objects">
                             <aura:iteration items="{!v.childObjectList.standard}" var="objwrap">
@@ -95,16 +95,16 @@
                             </aura:iteration>
                         </c:CustomOptionGroup>
 
-                    </c:customSelect>
+                    </c:CustomSelect>
 
                 </div>
 
                 <div class="slds-m-top_x-small">
-                    <c:customSelect value="{!v.grpFldName}" aura:id="grpFldName" label="Group By" placeholder="Group By" errorMessage="Invalid input" required="true" searchable="true">
+                    <c:CustomSelect value="{!v.grpFldName}" aura:id="grpFldName" label="Group By" placeholder="Group By" errorMessage="Invalid input" required="true" searchable="true">
                         <aura:iteration items="{!v.allFieldsList.groupBy}" var="objwrap">
                             <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                         </aura:iteration>
-                    </c:customSelect>
+                    </c:CustomSelect>
                 </div>
 
                 <div class="slds-m-top_x-small">
@@ -116,11 +116,11 @@
                 </div>
 
                 <div class="slds-m-top_x-small">
-                <c:customSelect value="{!v.sumFldName}" aura:id="sumFldName" label="Summarize By" placeholder="Summarize By" errorMessage="Invalid input" searchable="true">
+                <c:CustomSelect value="{!v.sumFldName}" aura:id="sumFldName" label="Summarize By" placeholder="Summarize By" errorMessage="Invalid input" searchable="true">
                     <aura:iteration items="{!v.allFieldsList.sumBy}" var="objwrap">
                         <c:CustomOption label="{!objwrap.objLabel}" value="{!objwrap.objName}"/>
                     </aura:iteration>
-                </c:customSelect>
+                </c:CustomSelect>
                 </div>
 
                 <div class="slds-m-top_x-small">
