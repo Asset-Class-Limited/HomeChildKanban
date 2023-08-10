@@ -35,7 +35,7 @@
                 }
             }
             var agrFld = recFlds.kanbanDev__SummarizeBy__c.value;
-            var agrFldFval = agrFld ? agrFld : null;
+            var agrFldVal = agrFld ? agrFld : null;
 
             if(objName && objFields && kanbanPicklistField){
                 //alert(recId + objName + objRelField + objFields + kanbanPicklistField);
@@ -44,17 +44,19 @@
                     'objName' : objName,
                     'objFields' : objFields.split(';'),
                     'kanbanField' : kanbanPicklistField,
-                    'summField' : agrFldFval,
+                    'summField' : agrFldVal,
                     'ParentRecId' : recId,
                     'relField' : objRelField,
                     'excVal' : ExcFVal,
                     'KbObjNameField' : KbObjNameField
                 });
                 action.setCallback(this, function(resp){
-                    /*console.log(resp.getState());
+                /*
+                console.log(resp.getState());
                 console.log(resp.getError());
                 console.clear();
-                console.log(resp.getReturnValue()); */
+                console.log(resp.getReturnValue());
+                */
                 helper.spinnerHelper(component, false);
                 if(resp.getState() === 'SUCCESS'){
                     var rVal = resp.getReturnValue();
