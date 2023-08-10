@@ -37,7 +37,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Fields_To_Show__c</field>
+                <field>FieldsToShow__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

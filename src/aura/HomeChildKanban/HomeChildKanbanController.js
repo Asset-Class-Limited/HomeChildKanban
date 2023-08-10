@@ -24,7 +24,7 @@
             var recId = component.get('v.recordId');
             var objName = recFlds.kanbanDev__ChildObject__c.value;
             var objRelField = recFlds.kanbanDev__Relation_Field__c.value;
-            var objFields = recFlds.kanbanDev__Fields_To_Show__c.value;
+            var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__Group_By__c.value;
             var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
             var KbObjNameField = recFlds.kanbanDev__Name_Field__c.value;
@@ -78,7 +78,7 @@
         var data = event.getParam('KanbanChildChange');
         if(data.from != data.to){
             //helper.spinnerHelper(component, true);
-            var objFields = recFlds.kanbanDev__Fields_To_Show__c.value.split(';');
+            var objFields = recFlds.kanbanDev__FieldsToShow__c.value.split(';');
             var recsMap = component.get('v.kwrap');
             var rec = recsMap.records[data.from][data.pos];
             var nameInToast;

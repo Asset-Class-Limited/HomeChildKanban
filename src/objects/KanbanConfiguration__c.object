@@ -93,7 +93,7 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Fields_To_Show__c</fullName>
+        <fullName>FieldsToShow__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Fields To Show</label>
