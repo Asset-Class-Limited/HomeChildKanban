@@ -25,7 +25,6 @@
         <members>HomeChildKanbanCrd</members>
         <members>HomeChildKanbanDeleteEvt</members>
         <members>HomeChildKanbanEvt</members>
-        <members>RemoveValidations</members>
         <members>customEvent</members>
         <members>customEventNotifyParent</members>
         <members>customMultiPickList</members>
