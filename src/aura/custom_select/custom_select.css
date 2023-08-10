@@ -43,7 +43,7 @@ License: BSD 3-Clause License*/
 .THIS .slds-picklist.ss-disabled:hover .slds-button {
     cursor: not-allowed;
     background-color: t(colorBackgroundShade);
-    border-color: t(colorBorderInpuDisabled);
+    border-color: t(colorBorderInputDisabled);
 }
 
 .THIS.slds-has-error .slds-picklist.ss-disabled .slds-button,
