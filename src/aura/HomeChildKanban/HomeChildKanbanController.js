@@ -124,7 +124,7 @@
                     });
                     toastEvent.fire();
                 } else {
-                    var em = 'An Unknown Error Occured';
+                    var em = 'An Unknown Error Occurred';
                     if(res.getState() === 'SUCCESS' && res.getReturnValue() != 'true'){
                         em = res.getReturnValue();
                     } else if(res.getState() === 'ERROR'){
@@ -134,7 +134,7 @@
                                 em = errors[0].message;
                             }
                         } else {
-                            em = 'An Unknown Error Occured';
+                            em = 'An Unknown Error Occurred';
                         }
                     }
                     toastEvent.setParams({
@@ -201,7 +201,7 @@
                         em = errors[0].message;
                     }
                 } else {
-                    em = 'An Unknown Error Occured';
+                    em = 'An Unknown Error Occurred';
                 }
                 toastEvent.setParams({
                     "title": "Error",
