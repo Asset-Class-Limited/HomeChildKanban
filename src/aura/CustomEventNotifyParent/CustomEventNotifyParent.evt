@@ -6,7 +6,7 @@
     GitHub: https://github.com/appiphony/Strike-Components
     License: BSD 3-Clause License
 
-    This component is part of the Kanban projects
+    This component is part of the Kanban project
     It may have some differences to meet Asset Class code standards
 -->
 <aura:event type="COMPONENT" description="Event template">
