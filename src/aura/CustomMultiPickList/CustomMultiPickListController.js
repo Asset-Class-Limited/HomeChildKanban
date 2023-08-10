@@ -33,14 +33,14 @@
 
 
     },
-    handleDoneRendering: function(component,event,helper){
+    handleDoneRendering: function(component, event, helper){
 
         var value = component.get('v.value');
         var alreadyRendered = component.get('v.alreadyRendered');
 
         if(!alreadyRendered){
             if(value){
-                helper.handleValueOnInit(component,event,helper);
+                helper.handleValueOnInit(component, event, helper);
             }
         }
         component.set('v.alreadyRendered', true);
@@ -75,7 +75,7 @@
         helper.removeOptionPill(component, event);
         helper.addOptionToList(component, event, helper);
         helper.removeFromComponentValue(component, event);
-        helper.doSearch(component,event,helper,component.get('v.searchTerm'),component);
+        helper.doSearch(component, event, helper, component.get('v.searchTerm'), component);
         component.getEvent('onchange').fire();
     },
     handleOnBlur: function(component, event, helper) {
@@ -127,7 +127,7 @@
         component.set('v.errorMessage', null);
         component.set('v.error', false);
     },
-    externalValueChange: function(component,event,helper){
+    externalValueChange: function(component, event, helper){
         var externalValue = event.getParam('arguments').externalValue;
         component.set('v.value', externalValue);
 
@@ -135,7 +135,7 @@
         inputField.getElement().value = '';
 
         if(externalValue || externalValue === ''){
-            helper.handleValueOnInit(component,event,helper);
+            helper.handleValueOnInit(component, event, helper);
         }
     }
 })

@@ -7,7 +7,7 @@
  */
 
 ({
-    afterRender: function (component, helper) {
+    afterRender: function (component, _helper) {
         this.superAfterRender();
         component.set('v.firstTimeRendered', true);
     },

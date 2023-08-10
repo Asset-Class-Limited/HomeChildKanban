@@ -73,12 +73,10 @@
         }
         }
     },
-    childChanged : function(component, event, helper) {
+    childChanged : function(component, event, _helper) {
         var recFlds = component.get('v.record').fields;
         var data = event.getParam('KanbanChildChange');
         if(data.from != data.to){
-            //helper.spinnerHelper(component, true);
-            var objFields = recFlds.kanbanDev__FieldsToShow__c.value.split(';');
             var recsMap = component.get('v.kwrap');
             var rec = recsMap.records[data.from][data.pos];
             var nameInToast;
@@ -115,7 +113,6 @@
                 'recVal' : data.to
             });
             action.setCallback(this, function(res){
-                //helper.spinnerHelper(component, false);
                 if(res.getState() === 'SUCCESS' && res.getReturnValue() === 'true'){
                     toastEvent.setParams({
                         "title": "Success!",
@@ -160,7 +157,7 @@
         component.set('v.delInfo', data);
         helper.modalHelper(component, 'srModal', 'modalBkdrp', true);
     },
-    deleteRecord : function(component, event, helper) {
+    deleteRecord : function(component, _event, helper) {
         var recFlds = component.get('v.record').fields;
         helper.modalHelper(component, 'srModal', 'modalBkdrp', false);
         helper.spinnerHelper(component, true);
@@ -216,11 +213,11 @@
         });
         $A.enqueueAction(action);
     },
-    closeModal : function(component, event, helper) {
+    closeModal : function(component, _event, helper) {
         helper.modalHelper(component, 'srModal', 'modalBkdrp', false);
         component.set('v.delInfo', null);
     },
-    initiateNewRecordCreation : function(component, event, helper) {
+    initiateNewRecordCreation : function(component, _event, _helper) {
         var recordId = component.get('v.recordId');
         if($A.util.isUndefinedOrNull(recordId)){
             var simpleRecord = component.get('v.simpleRecord');
@@ -240,17 +237,5 @@
             });
             createRecordEvent.fire();
         }
-    }/*,
-    navToRelatedList : function(component, event, helper){
-        var recordId = component.get('v.recordId');
-        if(!$A.util.isUndefinedOrNull(recordId)){
-            var simpleRecord = component.get('v.simpleRecord');
-            var relatedListEvent = $A.get("e.force:navigateToRelatedList");
-            relatedListEvent.setParams({
-                "relatedListId": simpleRecord.kanbanDev__ChildObject__c,
-                "parentRecordId": recordId
-            });
-            relatedListEvent.fire();
-        }
-    }*/
+    }
 })

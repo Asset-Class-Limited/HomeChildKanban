@@ -55,7 +55,7 @@
         	helper.getFields(component, event, helper, event.getParams().value.split('~;')[0]);
         }
     },
-    grpFldChanged : function(component, event, helper) {
+    grpFldChanged : function(component, event, _helper) {
         if(!$A.util.isUndefinedOrNull(event.getParams().value)){
             var action = component.get('c.getPickVals');
             var val = component.get('v.kanbanFor');
@@ -83,22 +83,22 @@
             $A.enqueueAction(action);
         }
     },
-    showSpinner : function (component, event, helper) {
+    showSpinner : function (component, _event, helper) {
         helper.spinnerHelper(component, true);
     },
-    hideSpinner : function (component, event, helper) {
+    hideSpinner : function (component, _event, helper) {
         helper.spinnerHelper(component, false);
     },
-    saveConfigur : function(component, event, helper) {
+    saveConfigur : function(component, _event, helper) {
         helper.validateForm(component, helper);
     },
-    CheckChild : function(component, event, helper) {
+    CheckChild : function(component, event, _helper) {
         var val = event.getSource().get('v.value');
-        var divele = component.find('forChild').getElement();
+        var divEle = component.find('forChild').getElement();
         if(val == 'Home'){
-            $A.util.addClass(divele, 'slds-hide');
+            $A.util.addClass(divEle, 'slds-hide');
         }else if(val == 'Child'){
-            $A.util.removeClass(divele, 'slds-hide');
+            $A.util.removeClass(divEle, 'slds-hide');
         }
     }
 })

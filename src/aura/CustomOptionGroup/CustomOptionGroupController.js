@@ -9,7 +9,7 @@
     It may have some differences to meet Asset Class code standards
 */
 ({
-    onInit: function(component, event, helper) {
+    onInit: function(component, _event, _helper) {
         component.set('v.hidden', $A.util.isEmpty(component.get('v.label')));
     },
     filterBy: function(component, event, helper) {

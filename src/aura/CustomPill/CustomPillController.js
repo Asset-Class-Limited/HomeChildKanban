@@ -9,7 +9,7 @@
     It may have some differences to meet Asset Class code standards
 */
 ({
-    destroyPill: function (component, event, helper) {
+    destroyPill: function (component, _event, helper) {
     	// Check to see if this component is in Strike Fiddler so we stop user from removing it
     	if (component.get('v.destroyable')) {
             helper.notifyParent(component);

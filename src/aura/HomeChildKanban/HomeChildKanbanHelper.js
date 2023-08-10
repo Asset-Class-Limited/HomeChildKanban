@@ -7,7 +7,7 @@
  */
 
 ({
-	updateChildHelper : function(component, recId, recField, data) {
+	updateChildHelper : function(_component, _recId, _recField, _data) {
 	},
      modalHelper : function(component, modal, backdrop, tf) {
         var mdl = component.find(modal).getElement();

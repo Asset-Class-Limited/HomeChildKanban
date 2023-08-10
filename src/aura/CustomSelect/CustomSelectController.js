@@ -73,7 +73,7 @@
     handleNotifyParent: function(component, event, helper) {
         helper.updateValue(component, event, helper);
     },
-    stopProp: function(component, event, helper) {
+    stopProp: function(_component, event, _helper) {
         event.stopPropagation();
     },
     searchTermChanged: function(component, event, helper) {
@@ -88,17 +88,17 @@
             helper.findChildOptionFromValue(component, event, helper, component);
         }
     },
-    showError: function(component, event, helper) {
+    showError: function(component, event, _helper) {
         var errorMessage = event.getParam('arguments').errorMessage;
 
         component.set('v.errorMessage', errorMessage);
         component.set('v.error', true);
     },
-    hideError: function(component, event, helper) {
+    hideError: function(component, _event, _helper) {
         component.set('v.errorMessage', null);
         component.set('v.error', false);
     },
-    handleKeyDown: function(component, event, helper) {
+    handleKeyDown: function(_component, _event, _helper) {
         // nothing
     }
 })

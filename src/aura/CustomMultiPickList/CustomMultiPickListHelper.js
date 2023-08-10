@@ -227,7 +227,7 @@
             helper.setFocus(component, event, helper);
         } else {
 
-            helper.openMenu(component,event,helper);
+            helper.openMenu(component, event, helper);
         }
     },
     setFocus: function(component, event, helper, parentCmp) {
@@ -298,7 +298,7 @@
         });
         helper.areChildrenFiltered(component, event, helper, searchTerm, parentCmp);
     },
-    areChildrenFiltered: function(component, event, helper, searchTerm, parentCmp) {
+    areChildrenFiltered: function(component, _event, _helper, searchTerm, parentCmp) {
 
         var body = component.get('v.body');
         var filteredCount = 0;
@@ -353,7 +353,7 @@
             }
         })
     },
-    handleValueOnInit: function(component,event,helper){
+    handleValueOnInit: function(component, _event, helper){
         var value = component.get('v.value');
 
         var valueArray = value.split(';');

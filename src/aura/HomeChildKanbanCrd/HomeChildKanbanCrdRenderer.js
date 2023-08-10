@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 ({
-    afterRender: function (component, helper) {
+    afterRender: function (component, _helper) {
         this.superAfterRender();
         if(component.get('v.firstTimeRendered')){
             var elem = component.find('newCard');

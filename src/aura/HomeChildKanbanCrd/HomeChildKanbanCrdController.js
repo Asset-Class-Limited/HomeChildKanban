@@ -7,7 +7,7 @@
  */
 
 ({
-    doInit : function(component, event, helper) {
+    doInit : function(component, _event, _helper) {
         var lst = [];
         var rec = component.get('v.rec');
         var picklistVal = component.get('v.pval');
@@ -48,7 +48,7 @@
         //console.log(fieldMap);
         component.set('v.dList',lst);
     },
-    navToRec : function(component, event, helper) {
+    navToRec : function(_component, event, _helper) {
         var recId = event.target.id;
         if(recId && recId != ''){
             var navEvt = $A.get("e.force:navigateToSObject");
@@ -58,7 +58,7 @@
             navEvt.fire();
         }
     },
-    recActionSelected : function(component, event, helper) {
+    recActionSelected : function(component, event, _helper) {
         var label = event.getParam("value");
         var value = event.getSource().get('v.value');
         if(label == "Edit"){

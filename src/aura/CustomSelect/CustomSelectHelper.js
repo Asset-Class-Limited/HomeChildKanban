@@ -9,7 +9,7 @@
     It may have some differences to meet Asset Class code standards
 */
 ({
-    blur: function(component, event, helper) {
+    blur: function(component, _event, _helper) {
         var dropdownTrigger = component.find('dropdown-trigger').getElement();
         var searchTerm = component.find('searchTerm').getElement();
 
@@ -48,9 +48,8 @@
 
         helper.blur(component, event, helper);
     },
-    doSearch: function(component, event, helper, searchTerm) {
+    doSearch: function(component, _event, _helper, searchTerm) {
         var visibleChildren = false;
-        var isCorrectBody;
 
         var filterChildren = function(component){
             var cb = component.get('v.body');
@@ -94,7 +93,7 @@
             });
         }
     },
-    removeKeyDownListener: function(component, event, helper) {
+    removeKeyDownListener: function(component, _event, _helper) {
         window.removeEventListener('keydown', component.handleKeyDown);
     },
     handleKeyDown: function(component, event, helper) {
