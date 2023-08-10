@@ -9,10 +9,10 @@ public with sharing class HomeChildKanban {
     @AuraEnabled
     public static string saveConfig(KanbanConfiguration__c obj){
         try{
-            if(obj.kanbanDev__KanbanFor__c == 'Child'){
-                obj.kanbanDev__NameField__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__ChildObject__c);
-            } else if(obj.kanbanDev__KanbanFor__c == 'Home'){
-                obj.kanbanDev__NameField__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__ForObject__c);
+            if(obj.KanbanFor__c == 'Child'){
+                obj.NameField__c = HomeChildKanbanUtil.getNameField(obj.ChildObject__c);
+            } else if(obj.KanbanFor__c == 'Home'){
+                obj.NameField__c = HomeChildKanbanUtil.getNameField(obj.ForObject__c);
             }
             upsert obj;
             return 'true';

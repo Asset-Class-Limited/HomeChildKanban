@@ -22,19 +22,19 @@
                 }), 400);
             }
             var recId = component.get('v.recordId');
-            var objName = recFields.kanbanDev__ChildObject__c.value;
-            var objRelField = recFields.kanbanDev__RelationField__c.value;
-            var objFields = recFields.kanbanDev__FieldsToShow__c.value;
-            var kanbanPicklistField = recFields.kanbanDev__GroupBy__c.value;
-            var excVal = recFields.kanbanDev__ExcludeFromGroupBy__c.value;
-            var KbObjNameField = recFields.kanbanDev__NameField__c.value;
+            var objName = recFields.ChildObject__c.value;
+            var objRelField = recFields.RelationField__c.value;
+            var objFields = recFields.FieldsToShow__c.value;
+            var kanbanPicklistField = recFields.GroupBy__c.value;
+            var excVal = recFields.ExcludeFromGroupBy__c.value;
+            var KbObjNameField = recFields.NameField__c.value;
             var ExcFVal = excVal ? excVal.split(';') : '';
             if(ExcFVal != ''){
                 for(var i=0; i<ExcFVal.length; i++){
                     ExcFVal[i] = ExcFVal[i].trim();
                 }
             }
-            var agrField = recFields.kanbanDev__SummarizeBy__c.value;
+            var agrField = recFields.SummarizeBy__c.value;
             var agrFieldVal = agrField ? agrField : null;
 
             if(objName && objFields && kanbanPicklistField){
@@ -83,17 +83,17 @@
             var rec = recsMap.records[data.from][data.pos];
             var nameInToast;
             var simpleRecord = component.get('v.simpleRecord');
-            if(!$A.util.isUndefinedOrNull(simpleRecord.kanbanDev__NameField__c) && simpleRecord.kanbanDev__NameField__c != 'false'){
-                if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__NameField__c])){
+            if(!$A.util.isUndefinedOrNull(simpleRecord.NameField__c) && simpleRecord.NameField__c != 'false'){
+                if($A.util.isUndefinedOrNull(rec[simpleRecord.NameField__c])){
                     nameInToast = component.get('v.kanbanWrap').cObjName;
                 } else {
-                	nameInToast = rec[simpleRecord.kanbanDev__NameField__c];
+                	nameInToast = rec[simpleRecord.NameField__c];
                 }
             } else {
                 nameInToast = component.get('v.kanbanWrap').cObjName;
             }
-            var kField = recFields.kanbanDev__GroupBy__c.value;
-            var sField = recFields.kanbanDev__SummarizeBy__c.value;
+            var kField = recFields.GroupBy__c.value;
+            var sField = recFields.SummarizeBy__c.value;
 
             if(rec[sField] && !isNaN(rec[sField])){
                 var sMap = recsMap.rollupData;
@@ -169,7 +169,7 @@
         var rec = recsMap.records[data.from][data.pos];
         console.log(rec);
         var action = component.get('c.deleteRec');
-        var sField = recFields.kanbanDev__SummarizeBy__c.value;
+        var sField = recFields.SummarizeBy__c.value;
         action.setParams({
             'obj' : rec
         });
@@ -225,16 +225,16 @@
             var simpleRecord = component.get('v.simpleRecord');
             var createRecordEvent = $A.get("e.force:createRecord");
             createRecordEvent.setParams({
-                "entityApiName": simpleRecord.kanbanDev__ForObject__c
+                "entityApiName": simpleRecord.ForObject__c
             });
             createRecordEvent.fire();
         } else {
             var simpleRecord = component.get('v.simpleRecord');
             var createRecordEvent = $A.get("e.force:createRecord");
             var recObj = {};
-            recObj[simpleRecord.kanbanDev__RelationField__c] = recordId;
+            recObj[simpleRecord.RelationField__c] = recordId;
             createRecordEvent.setParams({
-                "entityApiName": simpleRecord.kanbanDev__ChildObject__c,
+                "entityApiName": simpleRecord.ChildObject__c,
                 "defaultFieldValues": recObj
             });
             createRecordEvent.fire();

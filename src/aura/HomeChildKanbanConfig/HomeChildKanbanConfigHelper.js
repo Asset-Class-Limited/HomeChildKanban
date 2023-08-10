@@ -64,20 +64,20 @@
             if(recId){
                 sObj.Id = recId;
             }
-            sObj.sobjectType = 'kanbanDev__KanbanConfiguration__c';
+            sObj.sobjectType = 'KanbanConfiguration__c';
             sObj.Name = configName;
-            sObj.kanbanDev__ForObject__c = ObjectName;
+            sObj.ForObject__c = ObjectName;
             if(kf != 'Home'){
-                sObj.kanbanDev__ChildObject__c = childObjectName.split('~;')[0];
-                sObj.kanbanDev__RelationField__c = childObjectName.split('~;')[1];
+                sObj.ChildObject__c = childObjectName.split('~;')[0];
+                sObj.RelationField__c = childObjectName.split('~;')[1];
             } else {
-                sObj.kanbanDev__ChildObject__c = ObjectName;
+                sObj.ChildObject__c = ObjectName;
             }
-            sObj.kanbanDev__KanbanFor__c = kf;
-            sObj.kanbanDev__SummarizeBy__c = sumFldName;
-            sObj.kanbanDev__GroupBy__c = grpFldName;
-            sObj.kanbanDev__FieldsToShow__c = cardFields;
-            sObj.kanbanDev__ExcludeFromGroupBy__c = pickExclVals;
+            sObj.KanbanFor__c = kf;
+            sObj.SummarizeBy__c = sumFldName;
+            sObj.GroupBy__c = grpFldName;
+            sObj.FieldsToShow__c = cardFields;
+            sObj.ExcludeFromGroupBy__c = pickExclVals;
             var action = component.get('c.saveConfig');
             action.setParams({
                 'obj': sObj
@@ -95,7 +95,7 @@
                         });
                         var homeEvent = $A.get("e.force:navigateToObjectHome");
                             homeEvent.setParams({
-                                "scope": "kanbanDev__KanbanConfiguration__c"
+                                "scope": "KanbanConfiguration__c"
                             });
                         homeEvent.fire();
                     } else {

@@ -83,7 +83,7 @@
             <div class="cardClass" style="position:relative;">
                 <div class="kanbanContainerDiv">
                     <aura:iteration items="{!v.kanbanWrap.pickVals}" var="pv">
-                        <c:HomeChildKanbanCol fldList="{!v.record.fields.kanbanDev__FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.kanbanDev__GroupBy__c.value}" pickValue="{!pv}" pickValueLength="{!v.kanbanWrap.pickVals.length}" recsMap="{!v.kanbanWrap.records}" summaryMap="{!v.kanbanWrap.rollupData}" rsFld="{!v.kanbanWrap.sFldType}" fieldEditable="{!v.kanbanWrap.isEditable}" objDeletable="{!v.kanbanWrap.isDeletable}" fieldTypeMap="{!v.kanbanWrap.fieldTypeMap}"/>
+                        <c:HomeChildKanbanCol fldList="{!v.record.fields.FieldsToShow__c.value}" kanbanHeight="{!v.kanbanHeight}" kanbanField="{!v.record.fields.GroupBy__c.value}" pickValue="{!pv}" pickValueLength="{!v.kanbanWrap.pickVals.length}" recsMap="{!v.kanbanWrap.records}" summaryMap="{!v.kanbanWrap.rollupData}" rsFld="{!v.kanbanWrap.sFldType}" fieldEditable="{!v.kanbanWrap.isEditable}" objDeletable="{!v.kanbanWrap.isDeletable}" fieldTypeMap="{!v.kanbanWrap.fieldTypeMap}"/>
                     </aura:iteration>
                 </div>
                 <lightning:spinner variant="brand" size="large" aura:id="spinner" class="slds-hide"/>
