@@ -46,9 +46,9 @@ License: BSD 3-Clause License
     <aura:handler name="change" value="{!v.value}" action="{!c.handleValueChange}" />
 
     <aura:handler event="aura:doneRendering" action="{!c.doneRendering}" />
-    <aura:handler name="customEventNotifyParent" event="c:customEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked" />
+    <aura:handler name="CustomEventNotifyParent" event="c:CustomEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked" />
 
-    <aura:registerEvent name="onchange" type="c:customEvent"/>
+    <aura:registerEvent name="onchange" type="c:CustomEvent"/>
 
     <!-- Strike Select -->
     <div class="{!'slds-form-element ' + if(v.error, 'slds-has-error ', '') + if(v.isMobile, 'ss-picklist--mobile ', '') + v.class}">

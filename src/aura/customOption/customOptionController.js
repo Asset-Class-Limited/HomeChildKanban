@@ -41,7 +41,7 @@ License: BSD 3-Clause License
             return;
         }
 
-        var notifyEvent = component.getEvent("customEventNotifyParent");
+        var notifyEvent = component.getEvent("CustomEventNotifyParent");
 
         notifyEvent.setParams({
             "data": {

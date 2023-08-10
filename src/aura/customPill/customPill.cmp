@@ -21,7 +21,7 @@ License: BSD 3-Clause License
     <aura:attribute name="withContainer" type="Boolean" default="{!false}" description="determines if pill should be inside a container"/>
 
     <!-- Events -->
-    <aura:registerEvent name="strike_evt_componentDestroyed" type="c:customEvent" description="is fired when a pill is destroyed"/>
+    <aura:registerEvent name="strike_evt_componentDestroyed" type="c:CustomEvent" description="is fired when a pill is destroyed"/>
 
     <!-- Methods -->
     <aura:method name="destroyPill" action="{!c.destroyPill}"/>

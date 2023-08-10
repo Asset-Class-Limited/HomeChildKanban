@@ -26,7 +26,7 @@ License: BSD 3-Clause License
     },
     createOptionPill: function(component, event, helper) {
         var sourceValue, sourceLabel, sourceIconName;
-        if (event.getName() == 'customEventNotifyParent') {
+        if (event.getName() == 'CustomEventNotifyParent') {
             sourceValue = event.getParams('params').data.value;
             sourceLabel = event.getParams('params').data.label;
             sourceIconName = event.getParams('params').data.iconName;

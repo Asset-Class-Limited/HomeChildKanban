@@ -43,11 +43,11 @@ License: BSD 3-Clause License
     <aura:attribute name="searchTerm" type="String" description="String value of the user's entered search term"/>
 
     <!-- Event registration and handlers -->
-    <aura:registerEvent name="onchange" type="c:customEvent"/>
+    <aura:registerEvent name="onchange" type="c:CustomEvent"/>
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="aura:doneRendering" action="{!c.handleDoneRendering}"/>
-    <aura:handler name="customEventNotifyParent" event="c:customEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
-    <aura:handler name="strike_evt_componentDestroyed" event="c:customEvent" action="{!c.handleComponentDestroyed}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
+    <aura:handler name="CustomEventNotifyParent" event="c:CustomEvent" action="{!c.handleNotifyParent}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
+    <aura:handler name="strike_evt_componentDestroyed" event="c:CustomEvent" action="{!c.handleComponentDestroyed}" includeFacets="true" description="handles when a StrikeOption is clicked"/>
 
     <!-- Strike MultiSelect -->
     <div aura:id="multiSelectMenu" class="{!'slds-form-element slds-lookup ' + if(v.isMobile, 'smsp-picklist--mobile ', '') + if(v.menuIsOpen, 'slds-is-open ', '') + v.class}" data-select="single">
