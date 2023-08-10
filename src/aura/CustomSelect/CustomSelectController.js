@@ -26,7 +26,7 @@ License: BSD 3-Clause License*/
         });
 
         window.addEventListener('click', component.handleClick);
-        
+
         component.set('v.isMobile', $A.get('$Browser.formFactor') == 'DESKTOP' ? false : true);
     },
     doneRendering: function(component, event, helper) {
@@ -48,14 +48,14 @@ License: BSD 3-Clause License*/
         if (component.handleKeyDown) {
             helper.removeKeyDownListener(component, event, helper);
         }
-        
+
         setTimeout($A.getCallback(function() { // Fixes mobile dropdown closing immediately after it opens
             if (!component.get('v.disabled') && !component.get('v.openMenu') == true && component.get('v.body').length > 0) {
                 component.set('v.openMenu', true);
-                
+
                 window.addEventListener('keydown', component.handleKeyDown, { capture: true });
-                
-                setTimeout($A.getCallback(function() { // Fixes dropdown closing immediately after focusing on the search input                    
+
+                setTimeout($A.getCallback(function() { // Fixes dropdown closing immediately after focusing on the search input
                     if (component.isValid() && component.get('v.searchable')) {
                         component.find('searchTerm').getElement().focus();
                     }

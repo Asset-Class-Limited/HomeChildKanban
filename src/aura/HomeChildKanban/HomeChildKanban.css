@@ -9,7 +9,7 @@
 .THIS {
 }
 .THIS .kanbanContainerDiv{
-    display: -webkit-flex; 
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: flex-start;

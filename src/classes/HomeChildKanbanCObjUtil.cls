@@ -7,16 +7,16 @@
 public with sharing class HomeChildKanbanCObjUtil{
 	 @AuraEnabled
     public string objName {get; set;}
-    
+
     @AuraEnabled
     public string objLabel {get; set;}
-    
+
     @AuraEnabled
     public string objRelField {get; set;}
-    
+
     public HomeChildKanbanCObjUtil(string oName, string oLabel, string relFld){
         this.objName = oName;
         this.objLabel = oLabel;
         this.objRelField = relFld;
-    } 
+    }
 }

@@ -7,26 +7,26 @@
  */
 -->
 <aura:component >
-    
+
     <aura:attribute name="rec" type="object"/>
     <aura:attribute name="dList" type="list"/>
     <aura:attribute name="fieldList" type="list"/>
     <aura:attribute name="pval" type="string"/>
     <aura:attribute name="recPos" type="string"/>
-    
+
     <aura:attribute name="firstTimeRendered" type="boolean" default="false"/>
-    
+
     <aura:attribute name="fieldEditable" type="boolean"/>
     <aura:attribute name="objDeletable" type="boolean"/>
-    
+
     <aura:attribute name="fieldTypeMap" type="object"/>
-    
+
     <aura:attribute name="namePos" type="Integer"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="kanbanChildDelReq" type="c:HomeChildKanbanDeleteEvt"/>
-    
+
     <article class="slds-tile slds-tile_board" aura:id="newCard">
-        
+
         <aura:iteration items="{!v.dList}" var="dt" indexVar="ivar">
             <aura:if isTrue="{!ivar == 0}">
                 <lightning:layout >
@@ -62,5 +62,5 @@
             </aura:if>
         </aura:iteration>
     </article>
-    
+
 </aura:component>

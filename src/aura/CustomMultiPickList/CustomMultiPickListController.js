@@ -26,10 +26,10 @@ License: BSD 3-Clause License
         var randomNumber = Math.floor(1000 + Math.random() * 9000);
 
         component.set('v.idNumber', randomNumber);
-        
+
         component.set('v.isMobile', $A.get('$Browser.formFactor') == 'DESKTOP' ? false : true);
-        
-        
+
+
     },
     handleDoneRendering: function(component,event,helper){
 
@@ -46,10 +46,10 @@ License: BSD 3-Clause License
     },
     handleOnfocus: function(component, event, helper) {
         var isMobile = component.get('v.isMobile');
-        
+
         event.stopPropagation();
         helper.openMenu(component);
-        
+
         if (isMobile) {
             window.setTimeout($A.getCallback(function() {
                 component.find('mobileInputField').getElement().focus();
@@ -61,7 +61,7 @@ License: BSD 3-Clause License
         helper.openMenu(component);
     },
     handleNotifyParent: function(component, event, helper) {
-        
+
         helper.addToComponentValue(component, event, helper);
         helper.createOptionPill(component, event, helper);
         helper.removeOptionFromList(component, event, helper);
@@ -90,10 +90,10 @@ License: BSD 3-Clause License
         const KEYCODE_ENTER = 13;
         const KEYCODE_UP = 38;
         const KEYCODE_DOWN = 40;
-        
+
         var isMobile = component.get('v.isMobile');
         var searchTerm;
-        
+
         if (isMobile) {
             searchTerm = component.find('mobileInputField').getElement().value;
         } else {
@@ -102,9 +102,9 @@ License: BSD 3-Clause License
 
         var menuIsOpen = component.get('v.menuIsOpen');
         if(!menuIsOpen){component.set('v.menuIsOpen', true);}
-        
+
         var keyCode = event.which || event.keyCode || 0;
-        
+
         if (keyCode == KEYCODE_ENTER) {
             helper.updateValueByFocusIndex(component, event, helper);
         } else if (keyCode == KEYCODE_UP) {

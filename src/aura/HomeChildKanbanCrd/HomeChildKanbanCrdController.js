@@ -39,7 +39,7 @@
                         lst.push(currentValue);
                     }
                 }
-                
+
                 if(key == "Name" || key == "CaseNumber"){
                     component.set('v.namePos', i);
                 }

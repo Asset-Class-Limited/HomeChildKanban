@@ -32,7 +32,7 @@ public with sharing class HomeChildKanbanUtil {
     	public Map<String, Map<String, String>> fieldTypeMap{get; set;}
     	@AuraEnabled
         public boolean isCreatable {get; set;}
-        
+
         public HomeChildKanbanUtil(Map<string, list<sobject>> recs, List<string> pickValstr, Boolean iscs, String errorMessage, String gFldName, String cObName, String sFldName, string sFldIsCurrency, Map<string, decimal> rollupData, Boolean isEditable, Boolean isDeletable, Map<String, Map<String, String>> fieldTypeMap, Boolean isCreatable){
             this.records = recs;
             this.pickVals = pickValstr;
@@ -48,13 +48,13 @@ public with sharing class HomeChildKanbanUtil {
             this.fieldTypeMap = fieldTypeMap;
             this.isCreatable = isCreatable;
         }
-    
+
     /* This method ensures the fields are Accessible. Ensuring FLS. */
     public static boolean checkAccessibleFLS(Set<String> fieldNames, String objName){
         boolean isSafe = false;
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         SObjectType myObj = schemaMap.get(objName);
-        if(myObj.getDescribe().isAccessible()){ 
+        if(myObj.getDescribe().isAccessible()){
             for(String fldName: fieldNames){
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible()){
@@ -62,20 +62,20 @@ public with sharing class HomeChildKanbanUtil {
                 }else{
                     isSafe = false;
                     break;
-                }    
+                }
             }
         }else{
             isSafe = false;
         }
         return isSafe;
     }
-    
-    /* This method ensures the fields are Createable. Ensuring FLS. 
+
+    /* This method ensures the fields are Createable. Ensuring FLS.
     public static boolean checkCreateableFLS(Set<String> fieldNames, String objName){
         boolean isSafe = false;
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         SObjectType myObj = schemaMap.get(objName);
-        if(myObj.getDescribe().isAccessible()){ 
+        if(myObj.getDescribe().isAccessible()){
             for(String fldName: fieldNames){
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible() && myField.getDescribe().isCreateable()){
@@ -84,7 +84,7 @@ public with sharing class HomeChildKanbanUtil {
                     system.debug('fldName : '+fldName);
                     isSafe = false;
                     break;
-                }    
+                }
             }
         }else{
             isSafe = false;
@@ -92,13 +92,13 @@ public with sharing class HomeChildKanbanUtil {
         return isSafe;
     }
 */
-    
+
     /* This method ensures the fields are Createable and Updateable. Ensuring FLS. && myField.getDescribe().isCreateable() &&*/
     public static boolean checkUpdateableFLS(Set<String> fieldNames, String objName){
         boolean isSafe = false;
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         SObjectType myObj = schemaMap.get(objName);
-        if(myObj.getDescribe().isAccessible()){ 
+        if(myObj.getDescribe().isAccessible()){
             for(String fldName: fieldNames){
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible() && myField.getDescribe().isUpdateable()){
@@ -106,14 +106,14 @@ public with sharing class HomeChildKanbanUtil {
                 }else{
                     isSafe = false;
                     break;
-                }    
+                }
             }
         }else{
             isSafe = false;
         }
         return isSafe;
     }
-    
+
     public static String getNameField(String sObjectName){
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         SObjectType myObj = schemaMap.get(sObjectName);
@@ -125,7 +125,7 @@ public with sharing class HomeChildKanbanUtil {
                 for(sObjectField s : fields.values()){
                     Schema.DescribeFieldResult t = s.getDescribe();
                     if(t.isAccessible() && t.isNameField()){
-                        fName = t.getName();    
+                        fName = t.getName();
                         break;
                     }
                 }
@@ -138,7 +138,7 @@ public with sharing class HomeChildKanbanUtil {
                 }
             }
         }else{
-        	return 'false';    
+        	return 'false';
         }
     }
 }

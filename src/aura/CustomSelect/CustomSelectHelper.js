@@ -11,7 +11,7 @@ License: BSD 3-Clause License*/
         if (!dropdownTrigger || !searchTerm) {
             return;
         }
-        
+
         dropdownTrigger.blur();
         component.set('v.openMenu', false);
     },
@@ -60,7 +60,7 @@ License: BSD 3-Clause License*/
                     if(child.getType() === 'kanbanDev:strike_optionGroup'){
                         filterChildren(child);
                     } else if (!child.get('v.hidden') && !child.get('v.filtered')) {
-                        
+
                         visibleChildren = true;
                     }
                 }
@@ -68,7 +68,7 @@ License: BSD 3-Clause License*/
         	}
         }
         filterChildren(component);
-        
+
         if (visibleChildren){
             component.set('v.searchTerm', null);
             component.set('v.allChildrenFiltered', false);
@@ -167,9 +167,9 @@ License: BSD 3-Clause License*/
         if(!$A.util.isUndefinedOrNull(cb)){
             cb.forEach(function(child) {
                 if ($A.util.isUndefined(child.select)) {
-                    
+
                     var childOptions = helper.getChildOptions(child, event, helper);
-                    
+
                     options = options.concat(childOptions);
                 } else {
                     options.push(child);

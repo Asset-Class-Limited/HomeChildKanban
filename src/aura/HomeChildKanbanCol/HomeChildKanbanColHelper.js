@@ -12,10 +12,10 @@
         var psumval = component.get('v.psumval');
         if(smap){
             var options = {
-                useEasing : true, 
-                useGrouping : true, 
-                separator : ',', 
-                decimal : '.', 
+                useEasing : true,
+                useGrouping : true,
+                separator : ',',
+                decimal : '.',
             };
             //console.log(component.get('v.isCurrency'));
             var ftyp = component.get('v.rsFld');

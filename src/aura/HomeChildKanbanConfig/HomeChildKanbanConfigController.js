@@ -8,7 +8,7 @@
 
 ({
     doInit : function(component, event, helper) {
-        
+
         var action = component.get('c.getObjs');
         action.setCallback(this, function(res){
             var state = res.getState();
@@ -21,7 +21,7 @@
             }
         });
         $A.enqueueAction(action);
-        
+
     },
     objChanged : function(component, event, helper) {
         var action = component.get('c.getObjChilds');
@@ -52,7 +52,7 @@
     },
     childObjChanged : function(component, event, helper) {
         if(!$A.util.isUndefinedOrNull(event.getParams().value)){
-        	helper.getFields(component, event, helper, event.getParams().value.split('~;')[0]);    
+        	helper.getFields(component, event, helper, event.getParams().value.split('~;')[0]);
         }
     },
     grpFldChanged : function(component, event, helper) {
@@ -84,19 +84,19 @@
         }
     },
     showSpinner : function (component, event, helper) {
-        helper.spinnerHelper(component, true);   
+        helper.spinnerHelper(component, true);
     },
     hideSpinner : function (component, event, helper) {
-        helper.spinnerHelper(component, false); 
+        helper.spinnerHelper(component, false);
     },
     saveConfigur : function(component, event, helper) {
-        helper.validateForm(component, helper); 
+        helper.validateForm(component, helper);
     },
     CheckChild : function(component, event, helper) {
-        var val = event.getSource().get('v.value');  
+        var val = event.getSource().get('v.value');
         var divele = component.find('forChild').getElement();
         if(val == 'Home'){
-            $A.util.addClass(divele, 'slds-hide');            
+            $A.util.addClass(divele, 'slds-hide');
         }else if(val == 'Child'){
             $A.util.removeClass(divele, 'slds-hide');
         }
