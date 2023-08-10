@@ -62,7 +62,7 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>KanbanConfiguration_UtilityBar</members>
+        <members>KanbanConfigurationUtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <types>
