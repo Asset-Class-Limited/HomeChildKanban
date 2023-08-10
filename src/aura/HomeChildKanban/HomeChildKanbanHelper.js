@@ -15,7 +15,7 @@
         if(tf){
             $A.util.addClass(mdl, 'slds-fade-in-open');
             $A.util.addClass(bkdrp, 'slds-backdrop_open');
-        }else{
+        } else {
             $A.util.removeClass(mdl, 'slds-fade-in-open');
             $A.util.removeClass(bkdrp, 'slds-backdrop_open');
         }
@@ -24,7 +24,7 @@
         var spinner = component.find('spinner');
         if(tf){
             $A.util.removeClass(spinner,'slds-hide');
-        }else{
+        } else {
             $A.util.addClass(spinner,'slds-hide');
         }
     }

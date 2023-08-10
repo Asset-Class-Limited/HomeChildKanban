@@ -64,7 +64,7 @@
                             rVal.records[i].kanbanfield = rVal.records[i][kanbanPicklistField];
                         }
                         component.set('v.kanbanWrap',rVal);
-                    }else{
+                    } else {
                         component.set('v.errorMessage', rVal.errorMessage);
                     }
                 }
@@ -84,10 +84,10 @@
             if(!$A.util.isUndefinedOrNull(simpleRecord.kanbanDev__NameField__c) && simpleRecord.kanbanDev__NameField__c != 'false'){
                 if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__NameField__c])){
                     nameInToast = component.get('v.kanbanWrap').cObjName;
-                }else{
+                } else {
                 	nameInToast = rec[simpleRecord.kanbanDev__NameField__c];
                 }
-            }else{
+            } else {
                 nameInToast = component.get('v.kanbanWrap').cObjName;
             }
             var kfld = recFlds.kanbanDev__GroupBy__c.value;
@@ -121,11 +121,11 @@
                         "message": nameInToast+' moved to '+ data.to
                     });
                     toastEvent.fire();
-                }else{
+                } else {
                     var em = 'An Unknown Error Occured';
                     if(res.getState() === 'SUCCESS' && res.getReturnValue() != 'true'){
                         em = res.getReturnValue();
-                    }else if(res.getState() === 'ERROR'){
+                    } else if(res.getState() === 'ERROR'){
                         var errors = res.getError();
                         if (errors) {
                             if (errors[0] && errors[0].message) {
@@ -192,13 +192,13 @@
                 toastEvent.fire();
                 component.set('v.kanbanWrap',recsMap);
 
-            }else if(state === 'ERROR'){
+            } else if(state === 'ERROR'){
                 var errors = res.getError();
                 if (errors) {
                     if (errors[0] && errors[0].message) {
                         em = errors[0].message;
                     }
-                }else{
+                } else {
                     em = 'An Unknown Error Occured';
                 }
                 toastEvent.setParams({
@@ -226,7 +226,7 @@
                 "entityApiName": simpleRecord.kanbanDev__ForObject__c
             });
             createRecordEvent.fire();
-        }else{
+        } else {
             var simpleRecord = component.get('v.simpleRecord');
             var createRecordEvent = $A.get("e.force:createRecord");
             var recObj = {};

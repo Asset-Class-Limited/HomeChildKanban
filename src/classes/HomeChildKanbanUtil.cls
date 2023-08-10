@@ -59,12 +59,12 @@ public with sharing class HomeChildKanbanUtil {
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible()){
                     isSafe = true;
-                }else{
+                } else {
                     isSafe = false;
                     break;
                 }
             }
-        }else{
+        } else {
             isSafe = false;
         }
         return isSafe;
@@ -80,13 +80,13 @@ public with sharing class HomeChildKanbanUtil {
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible() && myField.getDescribe().isCreateable()){
                     isSafe = true;
-                }else{
+                } else {
                     system.debug('fldName : '+fldName);
                     isSafe = false;
                     break;
                 }
             }
-        }else{
+        } else {
             isSafe = false;
         }
         return isSafe;
@@ -103,12 +103,12 @@ public with sharing class HomeChildKanbanUtil {
                 SObjectField myField = myObj.getDescribe().fields.getMap().get(fldName);
                 if(myField != null && myField.getDescribe().isAccessible() && myField.getDescribe().isUpdateable()){
                     isSafe = true;
-                }else{
+                } else {
                     isSafe = false;
                     break;
                 }
             }
-        }else{
+        } else {
             isSafe = false;
         }
         return isSafe;
@@ -130,14 +130,14 @@ public with sharing class HomeChildKanbanUtil {
                     }
                 }
                 return fName;
-            }else{
+            } else {
                 if(fields.get('Name').getDescribe().isNameField() && fields.get('Name').getDescribe().isAccessible()){
                     return 'Name';
-                }else{
+                } else {
                     return 'false';
                 }
             }
-        }else{
+        } else {
         	return 'false';
         }
     }

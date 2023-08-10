@@ -13,7 +13,7 @@
         var picklistVal = component.get('v.pVal');
         var fieldList = component.get('v.fieldList').split(';');
         var fieldMap = component.get('v.fieldTypeMap');
-        for(var i=0; i<fieldList.length; i++){
+        for(var i=0; i < fieldList.length; i++){
             var key = fieldList[i];
             if(key != 'Id' && key != picklistVal){
                 var currentFieldMap = fieldMap[key];
@@ -23,19 +23,19 @@
                     if(currentFieldType == 'REFERENCE'){
                         var relInfo = currentFieldMap.relationName.split('~*!');
                         lst.push(rec[relInfo[0]][relInfo[1]]);
-                    }else if(currentFieldType == 'CURRENCY'){
+                    } else if(currentFieldType == 'CURRENCY'){
                         lst.push($A.localizationService.getDefaultCurrencyFormat().format(currentValue));
-                    }else if(currentFieldType == 'PERCENT'){
+                    } else if(currentFieldType == 'PERCENT'){
                         lst.push(currentValue+'%');
-                    }else if(currentFieldType == 'DATE'){
+                    } else if(currentFieldType == 'DATE'){
                         lst.push($A.localizationService.formatDate(currentValue));
-                    }else if(currentFieldType == 'DATETIME'){
+                    } else if(currentFieldType == 'DATETIME'){
                         lst.push($A.localizationService.formatDate(currentValue, "MMM DD YYYY, hh:mm a"));
-                    }else if(currentFieldType == 'BOOLEAN'){
+                    } else if(currentFieldType == 'BOOLEAN'){
                         lst.push(currentValue ? 'Yes' : 'No');
-                    }else if(currentFieldType == 'DOUBLE'){
+                    } else if(currentFieldType == 'DOUBLE'){
                         lst.push(currentValue.toString());
-                    }else{
+                    } else {
                         lst.push(currentValue);
                     }
                 }
@@ -45,7 +45,6 @@
                 }
             }
         }
-        //console.log(fieldMap);
         component.set('v.dList',lst);
     },
     navToRec : function(_component, event, _helper) {
@@ -67,7 +66,7 @@
                 "recordId": value
             });
             editRecordEvent.fire();
-        }else if(label == "Delete"){
+        } else if(label == "Delete"){
             var dObj = {};
             dObj.from = component.get('v.rec')[component.get('v.pVal')];
             dObj.pos = parseInt(component.get('v.recPos'));

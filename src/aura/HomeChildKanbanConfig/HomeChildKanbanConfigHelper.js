@@ -11,7 +11,7 @@
         var spinner = component.find('spinner');
         if(tf){
             $A.util.removeClass(spinner,'slds-hide');
-        }else{
+        } else {
             $A.util.addClass(spinner,'slds-hide');
         }
     },
@@ -28,31 +28,31 @@
         if(helper.iUorN(ObjectName)){
             helper.errorHelper(component, 'ObjectName', 'Please Select An Object', true);
             isFormValid = false;
-        }else{
+        } else {
             helper.errorHelper(component, 'ObjectName', null, false);
         }
         if(helper.iUorN(cardFields)){
             helper.errorHelper(component, 'cardFields', 'Please select at least one field to show on the kanban tile', true);
         	isFormValid = false;
-        }else{
+        } else {
             helper.errorHelper(component, 'cardFields', null, false);
         }
         if(helper.iUorN(grpFldName)){
             helper.errorHelper(component, 'grpFldName', 'Please Select A Field To Group By', true);
             isFormValid = false;
-        }else{
+        } else {
             helper.errorHelper(component, 'grpFldName', null, false);
         }
         if(helper.iUorN(childObjectName) && component.get('v.kanbanFor') == 'Child'){
             helper.errorHelper(component, 'childObjectName', 'Please Select A Field To Group By', true);
             isFormValid = false;
-        }else{
+        } else {
             helper.errorHelper(component, 'childObjectName', null, false);
         }
         if(helper.iUorN(configName)){
           	component.find('configName').showHelpMessageIfInvalid();
             isFormValid = false;
-        }else{
+        } else {
             //something
         }
         console.log('5 '+ isFormValid);
@@ -70,7 +70,7 @@
             if(kf != 'Home'){
                 sObj.kanbanDev__ChildObject__c = childObjectName.split('~;')[0];
                 sObj.kanbanDev__RelationField__c = childObjectName.split('~;')[1];
-            }else{
+            } else {
                 sObj.kanbanDev__ChildObject__c = ObjectName;
             }
             sObj.kanbanDev__KanbanFor__c = kf;
@@ -98,7 +98,7 @@
                                 "scope": "kanbanDev__KanbanConfiguration__c"
                             });
                         homeEvent.fire();
-                    }else{
+                    } else {
                         toastEvent.setParams({
                             "title": "Error!",
                             "message": "There was an error while saving the configuration.",
@@ -106,7 +106,7 @@
                         });
                     }
                     toastEvent.fire();
-                }else{
+                } else {
                     toastEvent.setParams({
                             "title": "Error!",
                             "message": "There was an error while saving the configuration.",
@@ -122,7 +122,7 @@
     iUorN : function(par){
         if($A.util.isUndefinedOrNull(par)){
             return true;
-        }else{
+        } else {
             return false;
         }
     },
@@ -130,7 +130,7 @@
         var el = component.find(elem);
         if(tf){
             el.showError(message);
-        }else{
+        } else {
             el.hideError();
         }
     },
@@ -146,7 +146,7 @@
                 console.log(rVal);
                 component.set('v.allFieldsList', rVal);
                 //component.find('fldsToShow').externalValueChange('Amount');
-            }else{
+            } else {
                 console.log(res);
                 console.log(state);
             }

@@ -11,7 +11,7 @@ public with sharing class HomeChildKanban {
         try{
             if(obj.kanbanDev__KanbanFor__c == 'Child'){
                 obj.kanbanDev__NameField__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__ChildObject__c);
-            }else if(obj.kanbanDev__KanbanFor__c == 'Home'){
+            } else if(obj.kanbanDev__KanbanFor__c == 'Home'){
                 obj.kanbanDev__NameField__c = HomeChildKanbanUtil.getNameField(obj.kanbanDev__ForObject__c);
             }
             upsert obj;
@@ -36,7 +36,7 @@ public with sharing class HomeChildKanban {
                 HomeChildKanbanObjUtil hcu = new HomeChildKanbanObjUtil(ds.getName(), ds.getLabel());
                 if(ds.isCustom()){
                     cList.add(hcu);
-                }else{
+                } else {
                     sList.add(hcu);
                 }
             }
@@ -60,7 +60,7 @@ public with sharing class HomeChildKanban {
                 HomeChildKanbanCObjUtil hcu = new HomeChildKanbanCObjUtil(sObj.getName()+'~;'+sFld.getName(), sObj.getLabel()+' ('+sFld.getName()+')', sFld.getName());
                 if(sObj.isCustom()){
                     cList.add(hcu);
-                }else{
+                } else {
                     sList.add(hcu);
                 }
             }
@@ -147,7 +147,7 @@ public with sharing class HomeChildKanban {
                             agrFldName = ads.getLabel();
                             sFldIsCurrency = aftype;
                             aggQMap = new Map<string, decimal>();
-                        }else{
+                        } else {
                             return new HomeChildKanbanUtil(null, null, false, 'The field '+summField+' cannot be summarized.', null, null, null, null, null, null, null, null, null);
                         }
                     }
@@ -196,13 +196,13 @@ public with sharing class HomeChildKanban {
                                 if(refObjName == null){
                                     return new HomeChildKanbanUtil(null, null, false, 'You do not have access to relational object. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
                                 }
-                            }else{
+                            } else {
                                 refObjName = currentFieldResult.getReferenceTo()[0].getDescribe().getName();
                             }
                             string fName = HomeChildKanbanUtil.getNameField(refObjName);
                             if(fName != 'false'){
                              	qry += currentRelationName+'.'+fName+' ,';
-                            }else{
+                            } else {
                                 return new HomeChildKanbanUtil(null, null, false, 'You do not have access to relation object '+refObjName+'. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
                             }
                             currentMap.put('relationName', currentRelationName+'~*!'+fName);
@@ -234,10 +234,10 @@ public with sharing class HomeChildKanban {
                 }catch (exception e){
                     return new HomeChildKanbanUtil(null, null, false, e.getMessage(), null, null, null, null, null, null, null, null, null);
                 }
-            }else{
+            } else {
                 return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the specified Group By field. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
             }
-        }else{
+        } else {
             return new HomeChildKanbanUtil(null, null, false, 'You do not have access to the requested fields. Please contact your administrator.', null, null, null, null, null, null, null, null, null);
         }
 
@@ -255,7 +255,7 @@ public with sharing class HomeChildKanban {
                 s.put(recField, recVal);
                 update s;
                 return 'true';
-            }else{
+            } else {
                 return 'You do not have update access to object. Please contact your administrator.';
             }
 
@@ -275,7 +275,7 @@ public with sharing class HomeChildKanban {
             }catch(exception e){
                 return e.getMessage();
             }
-        }else{
+        } else {
             return 'You do not have permissions to delete the record. Please contact your administrator.';
         }
     }

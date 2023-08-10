@@ -22,7 +22,7 @@
             var decimalValue = 0;
             if(fType == "CURRENCY"){
                 options.prefix = $A.get("$Locale.currency");
-            }else if(fType == "DOUBLE"){
+            } else if(fType == "DOUBLE"){
                 decimalValue = 2;
             }
             /*if(component.get('v.isCurrency')){

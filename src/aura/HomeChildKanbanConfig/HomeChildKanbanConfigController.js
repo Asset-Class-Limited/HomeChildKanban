@@ -15,7 +15,7 @@
             if(state === 'SUCCESS'){
                 var rVal = res.getReturnValue();
                 component.set('v.objectList', rVal);
-            }else{
+            } else {
                 console.log(res);
                 console.log(state);
             }
@@ -43,7 +43,7 @@
                 component.set('v.sumFldName', null);
                 component.find('cardFields').externalValueChange('');
                 component.find('pickExclVals').externalValueChange('');
-            }else{
+            } else {
                 console.log(res);
                 console.log(state);
             }
@@ -62,7 +62,7 @@
             var aval;
             if(val == 'Child'){
                 aval = component.get('v.childObjectName').split('~;')[0];
-            }else if(val == 'Home'){
+            } else if(val == 'Home'){
                 aval = component.get('v.ObjectName')
             }
             action.setParams({
@@ -75,7 +75,7 @@
                     var rVal = res.getReturnValue();
                     console.log(rVal);
                     component.set('v.allPickValList', rVal);
-                }else{
+                } else {
                     console.log(res);
                     console.log(state);
                 }
@@ -97,7 +97,7 @@
         var divEle = component.find('forChild').getElement();
         if(val == 'Home'){
             $A.util.addClass(divEle, 'slds-hide');
-        }else if(val == 'Child'){
+        } else if(val == 'Child'){
             $A.util.removeClass(divEle, 'slds-hide');
         }
     }
