@@ -27,7 +27,7 @@
 
     <aura:attribute name="psumval" type="Integer" default='0'/>
 
-    <ltng:require scripts="{!$Resource.HomeChildKanbanjs}" afterScriptsLoaded="{!c.sLoaded}"/>
+    <ltng:require scripts="{!$Resource.HomeChildKanbanJs}" afterScriptsLoaded="{!c.sLoaded}"/>
     <aura:attribute name="kanbanHeight" type="integer"/>
 
     <aura:handler name="init" value="this" action="{!c.doInit}"/>

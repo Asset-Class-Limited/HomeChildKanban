@@ -71,7 +71,7 @@
         <name>ListView</name>
     </types>
     <types>
-        <members>HomeChildKanbanjs</members>
+        <members>HomeChildKanbanJs</members>
         <name>StaticResource</name>
     </types>
     <version>43.0</version>
