@@ -29,7 +29,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Group_By__c</field>
+                <field>GroupBy__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

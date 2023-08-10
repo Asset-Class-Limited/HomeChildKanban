@@ -25,7 +25,7 @@
             var objName = recFlds.kanbanDev__ChildObject__c.value;
             var objRelField = recFlds.kanbanDev__Relation_Field__c.value;
             var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
-            var kanbanPicklistField = recFlds.kanbanDev__Group_By__c.value;
+            var kanbanPicklistField = recFlds.kanbanDev__GroupBy__c.value;
             var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
             var KbObjNameField = recFlds.kanbanDev__Name_Field__c.value;
             var ExcFVal = ExcVal ? ExcVal.split(';') : '';
@@ -92,7 +92,7 @@
             }else{
                 nameInToast = component.get('v.kwrap').cObjName;
             }
-            var kfld = recFlds.kanbanDev__Group_By__c.value;
+            var kfld = recFlds.kanbanDev__GroupBy__c.value;
             var sfield = recFlds.kanbanDev__Summarize_By__c.value;
 
             if(rec[sfield] && !isNaN(rec[sfield])){

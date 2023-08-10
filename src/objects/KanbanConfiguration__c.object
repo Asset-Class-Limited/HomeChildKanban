@@ -114,7 +114,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Group_By__c</fullName>
+        <fullName>GroupBy__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Group By</label>
