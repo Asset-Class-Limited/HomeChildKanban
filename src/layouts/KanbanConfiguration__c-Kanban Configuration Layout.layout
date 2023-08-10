@@ -53,7 +53,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Name_Field__c</field>
+                <field>NameField__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

@@ -27,7 +27,7 @@
             var objFields = recFlds.kanbanDev__FieldsToShow__c.value;
             var kanbanPicklistField = recFlds.kanbanDev__GroupBy__c.value;
             var ExcVal = recFlds.kanbanDev__ExcludeFromGroupBy__c.value;
-            var KbObjNameField = recFlds.kanbanDev__Name_Field__c.value;
+            var KbObjNameField = recFlds.kanbanDev__NameField__c.value;
             var ExcFVal = ExcVal ? ExcVal.split(';') : '';
             if(ExcFVal != ''){
                 for(var i=0; i<ExcFVal.length; i++){
@@ -83,11 +83,11 @@
             var rec = recsMap.records[data.from][data.pos];
             var nameInToast;
             var simpleRecord = component.get('v.simpleRecord');
-            if(!$A.util.isUndefinedOrNull(simpleRecord.kanbanDev__Name_Field__c) && simpleRecord.kanbanDev__Name_Field__c != 'false'){
-                if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__Name_Field__c])){
+            if(!$A.util.isUndefinedOrNull(simpleRecord.kanbanDev__NameField__c) && simpleRecord.kanbanDev__NameField__c != 'false'){
+                if($A.util.isUndefinedOrNull(rec[simpleRecord.kanbanDev__NameField__c])){
                     nameInToast = component.get('v.kwrap').cObjName;
                 }else{
-                	nameInToast = rec[simpleRecord.kanbanDev__Name_Field__c];
+                	nameInToast = rec[simpleRecord.kanbanDev__NameField__c];
                 }
             }else{
                 nameInToast = component.get('v.kwrap').cObjName;

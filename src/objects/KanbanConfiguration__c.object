@@ -150,7 +150,7 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Name_Field__c</fullName>
+        <fullName>NameField__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Name Field(Do Not Edit)</label>
