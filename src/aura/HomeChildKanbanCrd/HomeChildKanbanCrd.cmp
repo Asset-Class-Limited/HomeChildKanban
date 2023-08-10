@@ -27,12 +27,12 @@
 
     <article class="slds-tile slds-tile_board" aura:id="newCard">
 
-        <aura:iteration items="{!v.dList}" var="dt" indexVar="ivar">
-            <aura:if isTrue="{!ivar == 0}">
+        <aura:iteration items="{!v.dList}" var="dt" indexVar="iVar">
+            <aura:if isTrue="{!iVar == 0}">
                 <lightning:layout >
                     <lightning:layoutItem size="11" flexibility="no-grow">
-                        <aura:if isTrue="{!v.namePos == ivar}">
-                            <div class="{!v.namePos == ivar ? 'slds-truncate slds-link':'slds-truncate'}" id="{!v.namePos == ivar ? v.rec.Id:''}" onclick="{!c.navToRec}" title="{!dt}">{!dt}</div>
+                        <aura:if isTrue="{!v.namePos == iVar}">
+                            <div class="{!v.namePos == iVar ? 'slds-truncate slds-link':'slds-truncate'}" id="{!v.namePos == iVar ? v.rec.Id:''}" onclick="{!c.navToRec}" title="{!dt}">{!dt}</div>
                             <aura:set attribute="else">
                                 <div class="slds-truncate"><lightning:formattedRichText value="{!dt}"/></div>
                             </aura:set>
@@ -52,8 +52,8 @@
                     </lightning:layoutItem>
                 </lightning:layout>
                 <aura:set attribute="else">
-                    <aura:if isTrue="{!v.namePos == ivar}">
-                        <div class="{!v.namePos == ivar ? 'slds-truncate slds-link':'slds-truncate'}" id="{!v.namePos == ivar ? v.rec.Id:''}" onclick="{!c.navToRec}" title="{!dt}">{!dt}</div>
+                    <aura:if isTrue="{!v.namePos == iVar}">
+                        <div class="{!v.namePos == iVar ? 'slds-truncate slds-link':'slds-truncate'}" id="{!v.namePos == iVar ? v.rec.Id:''}" onclick="{!c.navToRec}" title="{!dt}">{!dt}</div>
                         <aura:set attribute="else">
                             <div class="slds-truncate"><lightning:formattedRichText value="{!dt}"/></div>
                         </aura:set>
