@@ -28,7 +28,7 @@
         <members>customEvent</members>
         <members>customEventNotifyParent</members>
         <members>customMultiPickList</members>
-        <members>custom_option</members>
+        <members>customOption</members>
         <members>customOptionGroup</members>
         <members>customPill</members>
         <members>customSelect</members>
